@@ -15,19 +15,10 @@
 	}
 }
 
-.wp-block-outstand-carousel-navigation__icon {
+// Zero specificity, so a theme's `is-icon-collection-<slug>` rule can restyle
+// its icons.
+:where(.wp-block-outstand-carousel-navigation__icon) {
 	fill: currentcolor;
-
-	// Icons from the editor preview are wrapped in a span.
-	&:is(span) {
-		display: contents;
-
-		svg {
-			width: var(--outstand-carousel-icon-size, 24px);
-			height: var(--outstand-carousel-icon-size, 24px);
-			fill: currentcolor;
-		}
-	}
 }
 
 .wp-block-outstand-carousel-navigation__button.is-toggle {

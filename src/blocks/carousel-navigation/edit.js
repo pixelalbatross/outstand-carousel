@@ -4,35 +4,19 @@
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import {
-	ComboboxControl,
 	PanelBody,
 	RangeControl,
 	__experimentalVStack as VStack, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 } from '@wordpress/components';
 
-import { useIcons } from '../../hooks/use-icons';
+import IconPicker from '../../components/icon-picker';
+import RegistryIcon from '../../components/registry-icon';
 import { useCarousel } from '../../hooks/use-carousel';
+import { useIcons } from '../../hooks/use-icons';
 
-/**
- * Shows an icon from the registry, or nothing while icons load.
- *
- * @param {Object} props         Component props.
- * @param {string} props.content Sanitized SVG markup from the icon registry.
- * @param {string} props.variant Extra class for the play and pause icons.
- * @return {Element|null} Icon.
- */
-function RegistryIcon( { content, variant } ) {
-	if ( ! content ) {
-		return null;
-	}
-
-	return (
-		<span
-			className={ `wp-block-outstand-carousel-navigation__icon ${ variant ?? '' }` }
-			dangerouslySetInnerHTML={ { __html: content } }
-		/>
-	);
-}
+const DEFAULT_PREVIOUS = 'core/arrow-left';
+const DEFAULT_NEXT = 'core/arrow-right';
+const ICON_CLASS = 'wp-block-outstand-carousel-navigation__icon';
 
 export default function CarouselNavigationEdit( {
 	attributes,
@@ -43,51 +27,38 @@ export default function CarouselNavigationEdit( {
 } ) {
 	const { previousIcon, nextIcon, iconSize } = attributes;
 	const { activeIndex, canGoPrev, canGoNext, goTo } = useCarousel( clientId );
-	const icons = useIcons();
+	const { icons } = useIcons();
 
-	const getContent = ( name, fallback ) =>
-		(
-			icons.find( ( icon ) => icon.name === name ) ??
-			icons.find( ( icon ) => icon.name === fallback )
-		)?.content;
-	const iconOptions = icons.map( ( icon ) => ( {
-		value: icon.name,
-		label: `${ icon.label } (${ icon.name })`,
-	} ) );
+	// Mirrors render.php: an unregistered icon falls back to the core arrow.
+	const findIcon = ( name, fallback ) =>
+		icons?.find( ( icon ) => icon.name === name ) ??
+		icons?.find( ( icon ) => icon.name === fallback );
 	const hasAutoplay = !! context[ 'outstand/carousel/autoplay' ];
 
 	// The layout support only reaches blocks with inner blocks by itself.
-	const blockProps = useBlockProps( {
-		className: layoutClassNames,
-		style: { '--outstand-carousel-icon-size': `${ iconSize }px` },
-	} );
+	const blockProps = useBlockProps( { className: layoutClassNames } );
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Icons', 'outstand-carousel' ) }>
 					<VStack spacing={ 4 }>
-						<ComboboxControl
+						<IconPicker
 							label={ __( 'Previous icon', 'outstand-carousel' ) }
 							value={ previousIcon }
-							options={ iconOptions }
 							onChange={ ( value ) =>
-								setAttributes( {
-									previousIcon: value || 'core/arrow-left',
-								} )
+								setAttributes( { previousIcon: value } )
 							}
 						/>
-						<ComboboxControl
+						<IconPicker
 							label={ __( 'Next icon', 'outstand-carousel' ) }
 							value={ nextIcon }
-							options={ iconOptions }
 							onChange={ ( value ) =>
-								setAttributes( {
-									nextIcon: value || 'core/arrow-right',
-								} )
+								setAttributes( { nextIcon: value } )
 							}
 						/>
 						<RangeControl
+							__next40pxDefaultSize
 							label={ __(
 								'Icon size (px)',
 								'outstand-carousel'
@@ -111,10 +82,9 @@ export default function CarouselNavigationEdit( {
 					onClick={ () => goTo( activeIndex - 1 ) }
 				>
 					<RegistryIcon
-						content={ getContent(
-							previousIcon,
-							'core/arrow-left'
-						) }
+						icon={ findIcon( previousIcon, DEFAULT_PREVIOUS ) }
+						size={ iconSize }
+						className={ ICON_CLASS }
 					/>
 				</button>
 				{ hasAutoplay && (
@@ -127,8 +97,14 @@ export default function CarouselNavigationEdit( {
 						) }
 					>
 						<RegistryIcon
-							content={ getContent( 'outstand-carousel/pause' ) }
-							variant="is-pause"
+							icon={ findIcon( 'outstand-carousel/play' ) }
+							size={ iconSize }
+							className={ `${ ICON_CLASS } is-play` }
+						/>
+						<RegistryIcon
+							icon={ findIcon( 'outstand-carousel/pause' ) }
+							size={ iconSize }
+							className={ `${ ICON_CLASS } is-pause` }
 						/>
 					</button>
 				) }
@@ -140,7 +116,9 @@ export default function CarouselNavigationEdit( {
 					onClick={ () => goTo( activeIndex + 1 ) }
 				>
 					<RegistryIcon
-						content={ getContent( nextIcon, 'core/arrow-right' ) }
+						icon={ findIcon( nextIcon, DEFAULT_NEXT ) }
+						size={ iconSize }
+						className={ ICON_CLASS }
 					/>
 				</button>
 			</div>

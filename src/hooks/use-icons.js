@@ -1,45 +1,30 @@
 /**
  * Reads the icons registered with the WordPress icon registry.
  */
-import apiFetch from '@wordpress/api-fetch';
-import { useEffect, useState } from '@wordpress/element';
-
-let request;
+import { store as coreStore } from '@wordpress/core-data';
+import { useSelect } from '@wordpress/data';
 
 /**
- * Fetches every registered icon once per page load.
+ * Returns the registered icons from the core `root/icon` entity, shared with
+ * the core Icon block.
  *
- * @return {Promise<Object[]>} Icons with name, label and SVG content.
+ * @param {string} [collection] Collection slug to limit the list to.
+ * @return {{icons: Object[]|null, isResolving: boolean}} Icons with name, label, content and collection.
  */
-function fetchIcons() {
-	if ( ! request ) {
-		request = apiFetch( { path: '/wp/v2/icons' } ).catch( () => [] );
-	}
+export function useIcons( collection ) {
+	return useSelect(
+		( select ) => {
+			const query = collection ? { collection } : {};
+			const store = select( coreStore );
 
-	return request;
-}
-
-/**
- * Returns the registered icons, or an empty list while they load.
- *
- * @return {Object[]} Icons with name, label and SVG content.
- */
-export function useIcons() {
-	const [ icons, setIcons ] = useState( [] );
-
-	useEffect( () => {
-		let isMounted = true;
-
-		fetchIcons().then( ( result ) => {
-			if ( isMounted ) {
-				setIcons( Array.isArray( result ) ? result : [] );
-			}
-		} );
-
-		return () => {
-			isMounted = false;
-		};
-	}, [] );
-
-	return icons;
+			return {
+				icons: store.getEntityRecords( 'root', 'icon', query ),
+				isResolving: ! store.hasFinishedResolution(
+					'getEntityRecords',
+					[ 'root', 'icon', query ]
+				),
+			};
+		},
+		[ collection ]
+	);
 }

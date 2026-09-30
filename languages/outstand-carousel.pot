@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Outstand Carousel 1.0.0\n"
+"Project-Id-Version: Outstand Carousel 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/outstand-carousel\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-30T18:26:57+00:00\n"
+"POT-Creation-Date: 2026-09-30T21:22:38+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: outstand-carousel\n"
@@ -40,13 +40,13 @@ msgstr ""
 msgid "https://outstand.site/?utm_source=wp-plugins&utm_medium=outstand-carousel&utm_campaign=author-uri"
 msgstr ""
 
-#: build/blocks/carousel-navigation/render.php:35
+#: build/blocks/carousel-navigation/render.php:33
 #: build/blocks/carousel/render.php:42
 #: build/blocks/carousel-navigation/index.js:1
 msgid "Previous slide"
 msgstr ""
 
-#: build/blocks/carousel-navigation/render.php:64
+#: build/blocks/carousel-navigation/render.php:62
 #: build/blocks/carousel/render.php:43
 #: build/blocks/carousel-navigation/index.js:1
 msgid "Next slide"
@@ -176,6 +176,18 @@ msgstr ""
 
 #: build/blocks/carousel-counter/index.js:1
 msgid "Shows 01 / 05 instead of 1 / 5."
+msgstr ""
+
+#: build/blocks/carousel-navigation/index.js:1
+msgid "Search icons"
+msgstr ""
+
+#: build/blocks/carousel-navigation/index.js:1
+msgid "No icons match your search."
+msgstr ""
+
+#: build/blocks/carousel-navigation/index.js:1
+msgid "No icons are registered."
 msgstr ""
 
 #: build/blocks/carousel-navigation/index.js:1

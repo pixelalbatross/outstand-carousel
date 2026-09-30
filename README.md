@@ -74,7 +74,19 @@ The navigation, pagination and counter blocks replace Splide's own arrows and pa
 
 ### Icons
 
-The navigation block uses `core/arrow-left` and `core/arrow-right` by default. Any icon registered with `wp_register_icon()` can replace them in the block settings.
+The navigation block uses `core/arrow-left` and `core/arrow-right` by default. Any icon registered with `wp_register_icon()` can replace them: the block settings show every registered icon in a searchable picker.
+
+The icon registry keeps only fills, so outline icons need their stroke from CSS. Every navigation icon, in the editor, the icon picker and the front end, carries an `is-icon-collection-<collection>` class, so a theme can style its own icons:
+
+```css
+svg.is-icon-collection-my-theme {
+	fill: none;
+	stroke: currentcolor;
+	stroke-width: 2;
+}
+```
+
+The editor sidebar is outside the canvas, so load the rule there too, for example from a stylesheet enqueued on `enqueue_block_editor_assets`. Core buttons set `fill` on their icons, so the sidebar needs `.components-button svg.is-icon-collection-my-theme`.
 
 ### CSS custom properties
 

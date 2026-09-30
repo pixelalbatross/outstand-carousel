@@ -1,0 +1,16 @@
+// About four rows; the rest scrolls.
+.outstand-carousel-icon-picker__grid {
+	max-height: 10.5rem;
+	overflow-y: auto;
+}
+
+.outstand-carousel-icon-picker__item {
+	justify-content: center;
+}
+
+// Zero specificity, so a theme's `is-icon-collection-<slug>` rule can restyle
+// its icons.
+:where(.outstand-carousel-icon-picker__item) svg {
+	flex-shrink: 0;
+	fill: currentcolor;
+}

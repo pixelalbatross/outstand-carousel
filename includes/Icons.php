@@ -57,4 +57,29 @@ class Icons extends BaseModule {
 			);
 		}
 	}
+
+	/**
+	 * Returns a registered icon's markup, falling back to another icon when it isn't registered.
+	 *
+	 * The `<svg>` gets an `is-icon-collection-<collection>` class, so a theme can
+	 * style its own icons, such as outline icons whose stroke the registry drops.
+	 *
+	 * @param  string $name       Icon name, such as `core/arrow-left`.
+	 * @param  string $fallback   Icon name to use when `$name` isn't registered.
+	 * @param  int    $size       Width and height in pixels.
+	 * @param  string $class_name Classes for the `<svg>` element.
+	 * @return string Sanitized SVG markup, or an empty string.
+	 */
+	public static function render( string $name, string $fallback, int $size, string $class_name ): string {
+		$registry = \WP_Icons_Registry::get_instance();
+		$icon     = $registry->is_registered( $name ) ? $name : $fallback;
+
+		return wp_get_icon(
+			$icon,
+			[
+				'size'  => $size,
+				'class' => $class_name . ' is-icon-collection-' . strtok( $icon, '/' ),
+			]
+		);
+	}
 }

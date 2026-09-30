@@ -19,13 +19,11 @@ if ( $slide_count < 2 ) {
 	return;
 }
 
-$icon_args = [
-	'size'  => (int) $attributes['iconSize'],
-	'class' => 'wp-block-outstand-carousel-navigation__icon',
-];
+$icon_size  = (int) $attributes['iconSize'];
+$icon_class = 'wp-block-outstand-carousel-navigation__icon';
 
-$previous_icon = wp_get_icon( $attributes['previousIcon'], $icon_args ) ?: wp_get_icon( 'core/arrow-left', $icon_args );
-$next_icon     = wp_get_icon( $attributes['nextIcon'], $icon_args ) ?: wp_get_icon( 'core/arrow-right', $icon_args );
+$previous_icon = Icons::render( $attributes['previousIcon'], 'core/arrow-left', $icon_size, $icon_class );
+$next_icon     = Icons::render( $attributes['nextIcon'], 'core/arrow-right', $icon_size, $icon_class );
 $has_autoplay  = ! empty( $block->context['outstand/carousel/autoplay'] );
 ?>
 <div <?php echo get_block_wrapper_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
@@ -51,8 +49,8 @@ $has_autoplay  = ! empty( $block->context['outstand/carousel/autoplay'] );
 		>
 			<?php
 			// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- sanitized by the icon registry.
-			echo wp_get_icon( Icons::COLLECTION . '/play', array_merge( $icon_args, [ 'class' => 'wp-block-outstand-carousel-navigation__icon is-play' ] ) );
-			echo wp_get_icon( Icons::COLLECTION . '/pause', array_merge( $icon_args, [ 'class' => 'wp-block-outstand-carousel-navigation__icon is-pause' ] ) );
+			echo Icons::render( Icons::COLLECTION . '/play', Icons::COLLECTION . '/play', $icon_size, $icon_class . ' is-play' );
+			echo Icons::render( Icons::COLLECTION . '/pause', Icons::COLLECTION . '/pause', $icon_size, $icon_class . ' is-pause' );
 			// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
 			?>
 		</button>
