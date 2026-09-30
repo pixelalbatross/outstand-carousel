@@ -11,6 +11,15 @@
   ],
   "description": "One slide. It can hold any blocks.",
   "textdomain": "outstand-carousel",
+  "attributes": {
+    "hash": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "usesContext": [
+    "outstand/carousel/hashNavigation"
+  ],
   "supports": {
     "html": false,
     "reusable": false,

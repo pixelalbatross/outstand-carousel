@@ -3,7 +3,9 @@
     "description": "defaults keep Swiper's speed",
     "attributes": {},
     "expected": {
-      "attributes": { "speed": 300 },
+      "attributes": {
+        "speed": 300
+      },
       "navigation": false,
       "pagination": null,
       "notes": []
@@ -20,7 +22,12 @@
       "className": "is-hero"
     },
     "expected": {
-      "attributes": { "align": "wide", "className": "is-hero", "type": "loop", "speed": 600 },
+      "attributes": {
+        "align": "wide",
+        "className": "is-hero",
+        "type": "loop",
+        "speed": 600
+      },
       "navigation": true,
       "pagination": "dots",
       "notes": []
@@ -28,9 +35,16 @@
   },
   {
     "description": "autoplay keeps Swiper's delay and hover behaviour",
-    "attributes": { "autoplay": true },
+    "attributes": {
+      "autoplay": true
+    },
     "expected": {
-      "attributes": { "speed": 300, "autoplay": true, "interval": 3000, "pauseOnHover": false },
+      "attributes": {
+        "speed": 300,
+        "autoplay": true,
+        "interval": 3000,
+        "pauseOnHover": false
+      },
       "navigation": false,
       "pagination": null,
       "notes": []
@@ -66,7 +80,7 @@
     }
   },
   {
-    "description": "settings with no equivalent",
+    "description": "width has no equivalent; hash navigation and the progress bar carry over",
     "attributes": {
       "width": "800",
       "hashNavigation": true,
@@ -74,20 +88,47 @@
       "paginationType": "progressbar"
     },
     "expected": {
-      "attributes": { "speed": 300 },
+      "attributes": {
+        "speed": 300,
+        "hashNavigation": true
+      },
       "navigation": false,
-      "pagination": "dots",
-      "notes": [ "width", "hashNavigation", "paginationType" ]
+      "pagination": "progress",
+      "notes": [
+        "width"
+      ]
     }
   },
   {
     "description": "fraction pagination becomes a counter",
-    "attributes": { "pagination": true, "paginationType": "fraction" },
+    "attributes": {
+      "pagination": true,
+      "paginationType": "fraction"
+    },
     "expected": {
-      "attributes": { "speed": 300 },
+      "attributes": {
+        "speed": 300
+      },
       "navigation": false,
       "pagination": "counter",
       "notes": []
+    }
+  },
+  {
+    "description": "an unknown pagination type becomes dots",
+    "attributes": {
+      "pagination": true,
+      "paginationType": "custom"
+    },
+    "expected": {
+      "attributes": {
+        "speed": 300
+      },
+      "navigation": false,
+      "pagination": "dots",
+      "notes": [
+        "paginationType"
+      ]
     }
   }
 ]

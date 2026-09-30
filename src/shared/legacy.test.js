@@ -40,10 +40,23 @@ describe( 'convertLegacySlider', () => {
 		expect( block.innerBlocks[ 0 ].innerBlocks ).toEqual( [
 			{
 				name: 'outstand/slide',
-				attributes: { className: 'is-first' },
+				attributes: { className: 'is-first', hash: 'first' },
 				innerBlocks: content,
 			},
 		] );
-		expect( notes ).toEqual( [ 'slideHash' ] );
+		expect( notes ).toEqual( [] );
+	} );
+
+	it( 'turns progress bar pagination into a progress pagination block', () => {
+		const { block } = convertLegacySlider(
+			{ pagination: true, paginationType: 'progressbar' },
+			[]
+		);
+
+		expect( block.innerBlocks[ 1 ] ).toEqual( {
+			name: 'outstand/carousel-pagination',
+			attributes: { type: 'progress' },
+			innerBlocks: [],
+		} );
 	} );
 } );

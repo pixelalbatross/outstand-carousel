@@ -3,7 +3,7 @@
         'name' => 'outstand/carousel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '7235cd1da7c6072b65c60ea225f5562b6fafa27c',
+        'reference' => '9a870a74feeb46134bac0d49c16909eb689c4715',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'outstand/carousel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '7235cd1da7c6072b65c60ea225f5562b6fafa27c',
+            'reference' => '9a870a74feeb46134bac0d49c16909eb689c4715',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -31,6 +31,22 @@ function pickShared( attributes ) {
 }
 
 /**
+ * Returns the slide attributes both block versions support, including its URL hash.
+ *
+ * @param {Object} attributes Legacy slide attributes.
+ * @return {Object} Slide attributes.
+ */
+function pickSlide( attributes ) {
+	const picked = pickShared( attributes );
+
+	if ( attributes.hash ) {
+		picked.hash = attributes.hash;
+	}
+
+	return picked;
+}
+
+/**
  * Turns a legacy Swiper length, a bare number of pixels or a CSS length, into a CSS length.
  *
  * @param {string|number|undefined} value Legacy value.
@@ -114,7 +130,7 @@ export function mapSliderAttributes( attributes ) {
 	}
 
 	if ( attributes.hashNavigation ) {
-		notes.push( 'hashNavigation' );
+		mapped.hashNavigation = true;
 	}
 
 	let pagination = null;
@@ -126,6 +142,9 @@ export function mapSliderAttributes( attributes ) {
 				break;
 			case 'fraction':
 				pagination = 'counter';
+				break;
+			case 'progressbar':
+				pagination = 'progress';
 				break;
 			default:
 				pagination = 'dots';
@@ -159,17 +178,11 @@ export function convertLegacySlider( attributes, innerBlocks ) {
 
 	const slides = innerBlocks
 		.filter( ( block ) => block.name === 'pixelalbatross/slide' )
-		.map( ( block ) => {
-			if ( block.attributes.hash ) {
-				notes.push( 'slideHash' );
-			}
-
-			return {
-				name: 'outstand/slide',
-				attributes: pickShared( block.attributes ),
-				innerBlocks: block.innerBlocks,
-			};
-		} );
+		.map( ( block ) => ( {
+			name: 'outstand/slide',
+			attributes: pickSlide( block.attributes ),
+			innerBlocks: block.innerBlocks,
+		} ) );
 
 	const children = [
 		{ name: 'outstand/slides', attributes: {}, innerBlocks: slides },
@@ -188,6 +201,13 @@ export function convertLegacySlider( attributes, innerBlocks ) {
 			children.push( {
 				name: 'outstand/carousel-pagination',
 				attributes: {},
+				innerBlocks: [],
+			} );
+			break;
+		case 'progress':
+			children.push( {
+				name: 'outstand/carousel-pagination',
+				attributes: { type: 'progress' },
 				innerBlocks: [],
 			} );
 			break;

@@ -16,6 +16,7 @@ import {
 import { useSelect } from '@wordpress/data';
 
 import { getSlideImageUrl, useCarousel } from '../../hooks/use-carousel';
+import { formatProgress } from '../../shared/counter';
 
 export default function CarouselPaginationEdit( {
 	attributes,
@@ -55,6 +56,13 @@ export default function CarouselPaginationEdit( {
 										'outstand-carousel'
 									),
 								},
+								{
+									value: 'progress',
+									label: __(
+										'Progress bar',
+										'outstand-carousel'
+									),
+								},
 							] }
 							help={
 								'thumbnails' === type
@@ -87,51 +95,65 @@ export default function CarouselPaginationEdit( {
 					</VStack>
 				</PanelBody>
 			</InspectorControls>
-			<ul { ...blockProps }>
-				{ slides.map( ( slide, index ) => {
-					const imageUrl =
-						'thumbnails' === type
-							? getSlideImageUrl( slide )
-							: undefined;
+			{ 'progress' === type ? (
+				<div { ...blockProps } aria-hidden="true">
+					<span
+						className="wp-block-outstand-carousel-pagination__progress"
+						style={ {
+							width: formatProgress( activeIndex, slides.length ),
+						} }
+					/>
+				</div>
+			) : (
+				<ul { ...blockProps }>
+					{ slides.map( ( slide, index ) => {
+						const imageUrl =
+							'thumbnails' === type
+								? getSlideImageUrl( slide )
+								: undefined;
 
-					return (
-						<li
-							key={ slide.clientId }
-							className="wp-block-outstand-carousel-pagination__entry"
-						>
-							<button
-								type="button"
-								className={ clsx(
-									'wp-block-outstand-carousel-pagination__item',
-									{
-										'is-active': index === activeIndex,
-									}
-								) }
-								aria-label={ sprintf(
-									/* translators: %d: slide number. */
-									__( 'Go to slide %d', 'outstand-carousel' ),
-									index + 1
-								) }
-								aria-current={ index === activeIndex }
-								onClick={ () => goTo( index ) }
+						return (
+							<li
+								key={ slide.clientId }
+								className="wp-block-outstand-carousel-pagination__entry"
 							>
-								{ 'thumbnails' === type && imageUrl && (
-									<img
-										className="wp-block-outstand-carousel-pagination__image"
-										src={ imageUrl }
-										alt=""
-									/>
-								) }
-								{ 'thumbnails' === type && ! imageUrl && (
-									<span className="wp-block-outstand-carousel-pagination__number">
-										{ index + 1 }
-									</span>
-								) }
-							</button>
-						</li>
-					);
-				} ) }
-			</ul>
+								<button
+									type="button"
+									className={ clsx(
+										'wp-block-outstand-carousel-pagination__item',
+										{
+											'is-active': index === activeIndex,
+										}
+									) }
+									aria-label={ sprintf(
+										/* translators: %d: slide number. */
+										__(
+											'Go to slide %d',
+											'outstand-carousel'
+										),
+										index + 1
+									) }
+									aria-current={ index === activeIndex }
+									onClick={ () => goTo( index ) }
+								>
+									{ 'thumbnails' === type && imageUrl && (
+										<img
+											className="wp-block-outstand-carousel-pagination__image"
+											src={ imageUrl }
+											alt=""
+										/>
+									) }
+									{ 'thumbnails' === type && ! imageUrl && (
+										<span className="wp-block-outstand-carousel-pagination__number">
+											{ index + 1 }
+										</span>
+									) }
+								</button>
+							</li>
+						);
+					} ) }
+				</ul>
+			) }
 		</>
 	);
 }

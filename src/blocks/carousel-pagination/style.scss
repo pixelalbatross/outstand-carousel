@@ -49,3 +49,21 @@
 	aspect-ratio: var(--outstand-carousel-thumbnail-aspect-ratio, 1);
 	object-fit: cover;
 }
+
+.wp-block-outstand-carousel-pagination.is-type-progress {
+	display: block;
+	height: var(--outstand-carousel-progress-height, 0.25rem);
+	overflow: hidden;
+	background-color: color-mix(in srgb, currentcolor 20%, transparent);
+}
+
+.wp-block-outstand-carousel-pagination__progress {
+	display: block;
+	height: 100%;
+	background-color: currentcolor;
+	transition: width 300ms ease;
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
+}

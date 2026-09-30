@@ -167,10 +167,6 @@ class MigrateCommand extends BaseModule {
 		switch ( $note ) {
 			case 'width':
 				return __( 'slider width dropped, use the block width or alignment', 'outstand-carousel' );
-			case 'hashNavigation':
-				return __( 'URL hash navigation dropped', 'outstand-carousel' );
-			case 'slideHash':
-				return __( 'slide URL hashes dropped', 'outstand-carousel' );
 			case 'paginationType':
 				return __( 'pagination type replaced with dots', 'outstand-carousel' );
 			default:

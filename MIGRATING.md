@@ -65,14 +65,14 @@ The output lists each converted post and the settings that had no equivalent.
 | Navigation | Carousel Navigation block |
 | Pagination type: Bullets | Carousel Pagination block, as dots |
 | Pagination type: Fraction | Carousel Counter block |
+| Pagination type: Progress Bar | Carousel Pagination block, as a progress bar |
+| Hash Navigation, and each slide's URL Hash | Hash navigation, and each slide's URL hash |
 
 The converter keeps the old speed (300ms) and autoplay delay (3000ms) when a slider used the defaults, and it keeps the slider's alignment, colors and spacing.
 
 ### Settings without an equivalent
 
-- **Hash Navigation** and each slide's **URL Hash** are dropped.
 - **Width** is dropped. Use the block alignment or a parent group's width.
-- **Progress Bar** pagination becomes dots.
 
 ### Code
 

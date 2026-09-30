@@ -7,12 +7,12 @@
   "category": "design",
   "icon": "ellipsis",
   "ancestor": [ "outstand/carousel" ],
-  "description": "One button per slide, shown as dots or thumbnails.",
+  "description": "One button per slide, shown as dots or thumbnails, or a progress bar.",
   "textdomain": "outstand-carousel",
   "attributes": {
     "type": {
       "type": "string",
-      "enum": [ "dots", "thumbnails" ],
+      "enum": [ "dots", "thumbnails", "progress" ],
       "default": "dots"
     },
     "thumbnailSize": {

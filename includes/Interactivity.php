@@ -44,6 +44,10 @@ class Interactivity {
 					$context = wp_interactivity_get_context();
 					return $context['isLooping'] || $context['activeIndex'] < $context['endIndex'];
 				},
+				'progress'      => static function (): string {
+					$context = wp_interactivity_get_context();
+					return self::format_progress( $context['activeIndex'], $context['total'] );
+				},
 				'counter'       => static function (): string {
 					$context = wp_interactivity_get_context();
 					return self::format_counter( $context['activeIndex'] + 1, $context['total'], $context['separator'], $context['padNumbers'] );
@@ -74,5 +78,16 @@ class Interactivity {
 		}
 
 		return $current . $separator . $total;
+	}
+
+	/**
+	 * Formats the progress bar width, such as "40%" on the second of five slides.
+	 *
+	 * @param  int $active_index Index of the active slide, from 0.
+	 * @param  int $total        Number of slides.
+	 * @return string CSS percentage.
+	 */
+	public static function format_progress( int $active_index, int $total ): string {
+		return round( ( $active_index + 1 ) / max( 1, $total ) * 100, 4 ) . '%';
 	}
 }

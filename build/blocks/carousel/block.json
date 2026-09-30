@@ -69,10 +69,15 @@
     "pauseOnHover": {
       "type": "boolean",
       "default": true
+    },
+    "hashNavigation": {
+      "type": "boolean",
+      "default": false
     }
   },
   "providesContext": {
-    "outstand/carousel/autoplay": "autoplay"
+    "outstand/carousel/autoplay": "autoplay",
+    "outstand/carousel/hashNavigation": "hashNavigation"
   },
   "allowedBlocks": [
     "outstand/slides",

@@ -37,6 +37,7 @@ export default function CarouselEdit( { attributes, setAttributes } ) {
 		autoplay,
 		interval,
 		pauseOnHover,
+		hashNavigation,
 	} = attributes;
 
 	const isFade = 'fade' === type;
@@ -201,6 +202,20 @@ export default function CarouselEdit( { attributes, setAttributes } ) {
 							checked={ autoHeight }
 							onChange={ ( value ) =>
 								setAttributes( { autoHeight: value } )
+							}
+						/>
+						<ToggleControl
+							label={ __(
+								'Hash navigation',
+								'outstand-carousel'
+							) }
+							help={ __(
+								'Link to a slide with a URL hash, such as #team. Set each hash in the slide settings.',
+								'outstand-carousel'
+							) }
+							checked={ hashNavigation }
+							onChange={ ( value ) =>
+								setAttributes( { hashNavigation: value } )
 							}
 						/>
 					</VStack>

@@ -8,7 +8,7 @@ The **Carousel** block holds these blocks, which you can arrange, style and nest
 
 - **Slides**: the slides themselves. It can sit inside a group, for example to overlay the navigation on the slides. Each **Slide** can hold any blocks. Pick images from the media library to create one slide per image.
 - **Carousel Navigation**: previous and next buttons, with icons from the WordPress icon registry. When the carousel autoplays, it adds a play/pause button. Hidden when there is only one slide.
-- **Carousel Pagination**: one button per slide, shown as dots or as thumbnails of each slide's first image.
+- **Carousel Pagination**: one button per slide, shown as dots or as thumbnails of each slide's first image, or a progress bar.
 - **Carousel Counter**: the current slide and the total, such as `1 / 5` or `01 / 05`. Hidden when there is only one slide.
 
 Carousel settings:
@@ -17,7 +17,8 @@ Carousel settings:
 - slides per page, with a separate value for mobile;
 - gap, slide height and transition speed;
 - rewind, center the active slide, free drag and fit the height to each slide;
-- autoplay, with interval and pause on hover.
+- autoplay, with interval and pause on hover;
+- hash navigation: each slide can have a URL hash, such as `#team`, that opens the carousel on it, and the URL follows the active slide.
 
 The left and right arrow keys move the slides while focus is inside the carousel.
 
@@ -32,7 +33,7 @@ The server renders the first slide, the counter and the button states, so the pa
 
 ### Manual installation
 
-1. Download the latest release ZIP from the [Releases page](https://github.com/s3rgiosan/outstand-carousel/releases/latest).
+1. Download the latest release ZIP from the [Releases page](https://github.com/pixelalbatross/outstand-carousel/releases/latest).
 2. Go to Plugins > Add New > Upload Plugin in your WordPress admin area.
 3. Upload the ZIP file and click Install Now.
 4. Activate the plugin.
@@ -95,6 +96,7 @@ The editor sidebar is outside the canvas, so load the rule there too, for exampl
 | `--outstand-carousel-dot-size` | `0.625rem` | Pagination dots |
 | `--outstand-carousel-thumbnail-width` | `4.5rem` | Pagination thumbnails |
 | `--outstand-carousel-thumbnail-aspect-ratio` | `1` | Pagination thumbnails |
+| `--outstand-carousel-progress-height` | `0.25rem` | Pagination progress bar |
 
 ## Development
 
@@ -110,7 +112,7 @@ npm run build
 
 ## Changelog
 
-All notable changes to this project are documented in [CHANGELOG.md](https://github.com/s3rgiosan/outstand-carousel/blob/main/CHANGELOG.md).
+All notable changes to this project are documented in [CHANGELOG.md](https://github.com/pixelalbatross/outstand-carousel/blob/main/CHANGELOG.md).
 
 ## License
 

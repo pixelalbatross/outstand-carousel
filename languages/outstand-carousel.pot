@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Outstand Carousel 1.1.0\n"
+"Project-Id-Version: Outstand Carousel 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/outstand-carousel\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-30T21:22:38+00:00\n"
+"POT-Creation-Date: 2026-09-30T22:15:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: outstand-carousel\n"
@@ -42,18 +42,18 @@ msgstr ""
 
 #: build/blocks/carousel-navigation/render.php:33
 #: build/blocks/carousel/render.php:42
-#: build/blocks/carousel-navigation/index.js:1
+#: build/blocks/carousel-navigation/index.js:2
 msgid "Previous slide"
 msgstr ""
 
 #: build/blocks/carousel-navigation/render.php:62
 #: build/blocks/carousel/render.php:43
-#: build/blocks/carousel-navigation/index.js:1
+#: build/blocks/carousel-navigation/index.js:2
 msgid "Next slide"
 msgstr ""
 
 #. translators: %d: slide number.
-#: build/blocks/carousel-pagination/render.php:32
+#: build/blocks/carousel-pagination/render.php:42
 #: build/blocks/carousel-pagination/index.js:2
 #, php-format,js-format
 msgid "Go to slide %d"
@@ -86,7 +86,7 @@ msgstr ""
 
 #: build/blocks/carousel/render.php:51
 #: includes/Interactivity.php:33
-#: build/blocks/carousel-navigation/index.js:1
+#: build/blocks/carousel-navigation/index.js:2
 msgid "Pause autoplay"
 msgstr ""
 
@@ -139,16 +139,6 @@ msgstr ""
 
 #: includes/CLI/MigrateCommand.php:171
 #: build/blocks/carousel/index.js:1
-msgid "URL hash navigation dropped"
-msgstr ""
-
-#: includes/CLI/MigrateCommand.php:173
-#: build/blocks/carousel/index.js:1
-msgid "slide URL hashes dropped"
-msgstr ""
-
-#: includes/CLI/MigrateCommand.php:175
-#: build/blocks/carousel/index.js:1
 msgid "pagination type replaced with dots"
 msgstr ""
 
@@ -163,6 +153,7 @@ msgstr ""
 #: build/blocks/carousel-counter/index.js:1
 #: build/blocks/carousel-pagination/index.js:1
 #: build/blocks/carousel/index.js:1
+#: build/blocks/slide/index.js:1
 msgid "Settings"
 msgstr ""
 
@@ -186,23 +177,29 @@ msgstr ""
 msgid "No icons match your search."
 msgstr ""
 
-#: build/blocks/carousel-navigation/index.js:1
+#. translators: %s: icon label.
+#: build/blocks/carousel-navigation/index.js:2
+#, js-format
+msgid "Selected: %s"
+msgstr ""
+
+#: build/blocks/carousel-navigation/index.js:2
 msgid "No icons are registered."
 msgstr ""
 
-#: build/blocks/carousel-navigation/index.js:1
+#: build/blocks/carousel-navigation/index.js:2
 msgid "Icons"
 msgstr ""
 
-#: build/blocks/carousel-navigation/index.js:1
+#: build/blocks/carousel-navigation/index.js:2
 msgid "Previous icon"
 msgstr ""
 
-#: build/blocks/carousel-navigation/index.js:1
+#: build/blocks/carousel-navigation/index.js:2
 msgid "Next icon"
 msgstr ""
 
-#: build/blocks/carousel-navigation/index.js:1
+#: build/blocks/carousel-navigation/index.js:2
 msgid "Icon size (px)"
 msgstr ""
 
@@ -216,6 +213,10 @@ msgstr ""
 
 #: build/blocks/carousel-pagination/index.js:1
 msgid "Thumbnails"
+msgstr ""
+
+#: build/blocks/carousel-pagination/index.js:1
+msgid "Progress bar"
 msgstr ""
 
 #: build/blocks/carousel-pagination/index.js:1
@@ -299,6 +300,14 @@ msgid "Fit the height to each slide"
 msgstr ""
 
 #: build/blocks/carousel/index.js:1
+msgid "Hash navigation"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Link to a slide with a URL hash, such as #team. Set each hash in the slide settings."
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
 msgid "Autoplay"
 msgstr ""
 
@@ -318,6 +327,14 @@ msgstr ""
 #: build/blocks/carousel/index.js:2
 #, js-format
 msgid "Slider converted to a carousel. Settings without an equivalent: %s."
+msgstr ""
+
+#: build/blocks/slide/index.js:1
+msgid "URL hash"
+msgstr ""
+
+#: build/blocks/slide/index.js:1
+msgid "Opens the carousel on this slide when the page URL ends with this hash."
 msgstr ""
 
 #: build/blocks/slide/index.js:1
@@ -371,7 +388,7 @@ msgstr ""
 
 #: build/blocks/carousel-pagination/block.json
 msgctxt "block description"
-msgid "One button per slide, shown as dots or thumbnails."
+msgid "One button per slide, shown as dots or thumbnails, or a progress bar."
 msgstr ""
 
 #: build/blocks/carousel/block.json

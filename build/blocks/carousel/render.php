@@ -112,14 +112,15 @@ if ( empty( $attributes['anchor'] ) ) {
 }
 
 $context = [
-	'id'          => $carousel_id,
-	'trackId'     => $carousel_id . '-track',
-	'options'     => $options,
-	'activeIndex' => 0,
-	'total'       => $total,
-	'endIndex'    => $end_index,
-	'isLooping'   => $is_loop || ! empty( $options['rewind'] ),
-	'isPlaying'   => ! empty( $options['autoplay'] ),
+	'id'             => $carousel_id,
+	'trackId'        => $carousel_id . '-track',
+	'options'        => $options,
+	'activeIndex'    => 0,
+	'total'          => $total,
+	'endIndex'       => $end_index,
+	'isLooping'      => $is_loop || ! empty( $options['rewind'] ),
+	'isPlaying'      => ! empty( $options['autoplay'] ),
+	'hashNavigation' => (bool) $attributes['hashNavigation'],
 ];
 ?>
 <div

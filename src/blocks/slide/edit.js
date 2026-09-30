@@ -6,20 +6,35 @@ import { __ } from '@wordpress/i18n';
 import { createBlock } from '@wordpress/blocks';
 import {
 	BlockControls,
+	InspectorControls,
 	store as blockEditorStore,
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
-import { ToolbarButton, ToolbarGroup } from '@wordpress/components';
+import {
+	PanelBody,
+	TextControl,
+	ToolbarButton,
+	ToolbarGroup,
+} from '@wordpress/components';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import { plus } from '@wordpress/icons';
 
 import { useCarousel } from '../../hooks/use-carousel';
 
+// Spaces and `#` aren't valid in a URL hash.
+const INVALID_HASH_CHARACTERS = /[\s#]/g;
+
 const TEMPLATE = [ [ 'core/heading', { level: 2 } ], [ 'core/paragraph' ] ];
 
-export default function SlideEdit( { clientId, isSelected } ) {
+export default function SlideEdit( {
+	attributes,
+	setAttributes,
+	clientId,
+	isSelected,
+	context,
+} ) {
 	const { activeIndex, perPage, goTo } = useCarousel( clientId );
 	const { index, parentId, hasChildSelected } = useSelect(
 		( select ) => {
@@ -60,6 +75,28 @@ export default function SlideEdit( { clientId, isSelected } ) {
 
 	return (
 		<>
+			{ !! context[ 'outstand/carousel/hashNavigation' ] && (
+				<InspectorControls>
+					<PanelBody title={ __( 'Settings', 'outstand-carousel' ) }>
+						<TextControl
+							label={ __( 'URL hash', 'outstand-carousel' ) }
+							help={ __(
+								'Opens the carousel on this slide when the page URL ends with this hash.',
+								'outstand-carousel'
+							) }
+							value={ attributes.hash }
+							onChange={ ( value ) =>
+								setAttributes( {
+									hash: value.replace(
+										INVALID_HASH_CHARACTERS,
+										'-'
+									),
+								} )
+							}
+						/>
+					</PanelBody>
+				</InspectorControls>
+			) }
 			<BlockControls group="other">
 				<ToolbarGroup>
 					<ToolbarButton

@@ -102,6 +102,9 @@ class LegacyConverter {
 			case 'dots':
 				$inner_blocks[] = self::make_block( 'outstand/carousel-pagination' );
 				break;
+			case 'progress':
+				$inner_blocks[] = self::make_block( 'outstand/carousel-pagination', [ 'type' => 'progress' ] );
+				break;
 			case 'counter':
 				$inner_blocks[] = self::make_block( 'outstand/carousel-counter' );
 				break;
@@ -179,7 +182,7 @@ class LegacyConverter {
 		}
 
 		if ( ! empty( $attributes['hashNavigation'] ) ) {
-			$notes[] = 'hashNavigation';
+			$mapped['hashNavigation'] = true;
 		}
 
 		$pagination = null;
@@ -193,6 +196,9 @@ class LegacyConverter {
 					break;
 				case 'fraction':
 					$pagination = 'counter';
+					break;
+				case 'progressbar':
+					$pagination = 'progress';
 					break;
 				default:
 					$pagination = 'dots';
@@ -217,16 +223,17 @@ class LegacyConverter {
 	 */
 	private static function convert_slide( array $slide, array &$notes ): array {
 		$attributes = $slide['attrs'] ?? [];
+		$mapped     = self::pick_shared( $attributes );
 
 		if ( ! empty( $attributes['hash'] ) ) {
-			$notes[] = 'slideHash';
+			$mapped['hash'] = $attributes['hash'];
 		}
 
 		$inner_blocks = self::convert_blocks( $slide['innerBlocks'] ?? [], $notes );
 
 		return [
 			'blockName'    => 'outstand/slide',
-			'attrs'        => self::pick_shared( $attributes ),
+			'attrs'        => $mapped,
 			'innerBlocks'  => $inner_blocks,
 			'innerHTML'    => $slide['innerHTML'] ?? '',
 			'innerContent' => $slide['innerContent'] ?? array_fill( 0, count( $inner_blocks ), null ),

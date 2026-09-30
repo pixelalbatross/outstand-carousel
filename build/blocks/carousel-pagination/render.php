@@ -20,7 +20,17 @@ if ( $slide_count < 2 ) {
 	return;
 }
 
-$pagination_type = 'thumbnails' === $attributes['type'] ? 'thumbnails' : 'dots';
+$pagination_type = in_array( $attributes['type'], [ 'dots', 'thumbnails', 'progress' ], true ) ? $attributes['type'] : 'dots';
+
+// The progress bar is decorative: the slides and the counter announce the position.
+if ( 'progress' === $pagination_type ) {
+	?>
+	<div <?php echo get_block_wrapper_attributes( [ 'class' => 'is-type-progress' ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> aria-hidden="true">
+		<span class="wp-block-outstand-carousel-pagination__progress" data-wp-style--width="state.progress"></span>
+	</div>
+	<?php
+	return;
+}
 ?>
 <ul <?php echo get_block_wrapper_attributes( [ 'class' => 'is-type-' . $pagination_type ] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php foreach ( $media_ids as $index => $media_id ) : ?>

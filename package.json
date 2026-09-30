@@ -1,6 +1,6 @@
 {
   "name": "outstand-carousel",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Carousel block with composable navigation, pagination and counter, powered by Splide and the Interactivity API.",
   "contributors": [
     {
@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/s3rgiosan/outstand-carousel"
+    "url": "https://github.com/pixelalbatross/outstand-carousel"
   },
   "license": "GPL-3.0-or-later",
   "scripts": {
