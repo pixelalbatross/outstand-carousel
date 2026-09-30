@@ -1,0 +1,111 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "outstand/carousel",
+  "version": "1.0.0",
+  "title": "Carousel",
+  "category": "design",
+  "icon": "slides",
+  "description": "Show slides one or more at a time, with navigation, pagination and a counter.",
+  "keywords": [ "slider", "slideshow", "gallery" ],
+  "textdomain": "outstand-carousel",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "enum": [ "slide", "loop", "fade" ],
+      "default": "slide"
+    },
+    "perPage": {
+      "type": "number",
+      "default": 1
+    },
+    "perPageMobile": {
+      "type": "number"
+    },
+    "gap": {
+      "type": "string",
+      "default": ""
+    },
+    "height": {
+      "type": "string",
+      "default": ""
+    },
+    "speed": {
+      "type": "number",
+      "default": 400
+    },
+    "rewind": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoHeight": {
+      "type": "boolean",
+      "default": false
+    },
+    "focusCenter": {
+      "type": "boolean",
+      "default": false
+    },
+    "freeDrag": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "interval": {
+      "type": "number",
+      "default": 5000
+    },
+    "pauseOnHover": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "providesContext": {
+    "outstand/carousel/autoplay": "autoplay"
+  },
+  "allowedBlocks": [
+    "outstand/slides",
+    "outstand/carousel-navigation",
+    "outstand/carousel-pagination",
+    "outstand/carousel-counter",
+    "core/group"
+  ],
+  "supports": {
+    "align": [ "wide", "full" ],
+    "anchor": true,
+    "ariaLabel": true,
+    "html": false,
+    "color": {
+      "background": true,
+      "gradients": true,
+      "heading": true,
+      "link": true,
+      "text": true
+    },
+    "spacing": {
+      "margin": [ "top", "bottom" ],
+      "padding": true,
+      "blockGap": true
+    },
+    "layout": {
+      "allowSwitching": false,
+      "allowEditing": false,
+      "allowInheriting": false,
+      "default": {
+        "type": "flex",
+        "orientation": "vertical",
+        "justifyContent": "stretch",
+        "flexWrap": "nowrap"
+      }
+    },
+    "interactivity": true
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScriptModule": "file:./view.js",
+  "render": "file:./render.php"
+}

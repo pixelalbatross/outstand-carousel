@@ -1,0 +1,43 @@
+{
+  "name": "outstand/carousel",
+  "description": "Carousel block with composable navigation, pagination and counter, powered by Splide and the Interactivity API.",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Sérgio Santos",
+      "homepage": "https://s3rgiosan.dev"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Outstand\\WP\\Carousel\\": "includes/"
+    }
+  },
+  "require": {
+    "php": "^8.2",
+    "composer-plugin-api": "^2.3",
+    "yahnis-elsts/plugin-update-checker": "^5.6"
+  },
+  "require-dev": {
+    "pixelalbatross/coding-standards": "dev-main"
+  },
+  "scripts": {
+    "lint": "phpcs .",
+    "lint-fix": "phpcbf ."
+  },
+  "extra": {
+    "installer-name": "outstand-carousel"
+  },
+  "config": {
+    "platform": {
+      "php": "8.2"
+    },
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "optimize-autoloader": true
+  }
+}

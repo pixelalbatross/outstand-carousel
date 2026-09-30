@@ -1,0 +1,15 @@
+.editor-styles-wrapper .wp-block-outstand-carousel {
+
+	.splide__list {
+		gap: var(--outstand-carousel-gap);
+	}
+
+	.splide__slide {
+		width: calc((100% + var(--outstand-carousel-gap)) / var(--outstand-carousel-per-page) - var(--outstand-carousel-gap));
+		height: var(--outstand-carousel-height, auto);
+
+		&:not(.is-visible) {
+			display: none;
+		}
+	}
+}

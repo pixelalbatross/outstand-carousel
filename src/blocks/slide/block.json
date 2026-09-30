@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "outstand/slide",
+  "version": "1.0.0",
+  "title": "Slide",
+  "category": "design",
+  "icon": "cover-image",
+  "parent": [ "outstand/slides" ],
+  "description": "One slide. It can hold any blocks.",
+  "textdomain": "outstand-carousel",
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "color": {
+      "background": true,
+      "gradients": true,
+      "heading": true,
+      "link": true,
+      "text": true
+    },
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
+    },
+    "dimensions": {
+      "minHeight": true
+    },
+    "spacing": {
+      "padding": true,
+      "blockGap": true
+    },
+    "layout": {
+      "allowSizingOnChildren": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

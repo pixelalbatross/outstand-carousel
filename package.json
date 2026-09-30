@@ -1,0 +1,46 @@
+{
+  "name": "outstand-carousel",
+  "version": "1.0.0",
+  "description": "Carousel block with composable navigation, pagination and counter, powered by Splide and the Interactivity API.",
+  "contributors": [
+    {
+      "name": "Sérgio Santos",
+      "homepage": "https://s3rgiosan.dev"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s3rgiosan/outstand-carousel"
+  },
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "start": "wp-scripts start --experimental-modules",
+    "build": "wp-scripts build --experimental-modules",
+    "packages-update": "wp-scripts packages-update",
+    "lint:js": "wp-scripts lint-js",
+    "lint:js:fix": "wp-scripts lint-js --fix",
+    "lint:css": "wp-scripts lint-style",
+    "format": "wp-scripts format",
+    "test:js": "wp-scripts test-unit-js",
+    "translate": "npm run translate:pot && npm run translate:update",
+    "translate:pot": "wp i18n make-pot . languages/outstand-carousel.pot --exclude=src,node_modules,vendor",
+    "translate:update": "wp i18n update-po languages/outstand-carousel.pot languages/*.po",
+    "translate:compile": "npm run translate:mo && npm run translate:js",
+    "translate:js": "wp i18n make-json languages --no-purge",
+    "translate:mo": "wp i18n make-mo languages languages"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "@wordpress/icons": "^17.0.0",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^36.0.0",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.3"
+  }
+}

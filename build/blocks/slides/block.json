@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "outstand/slides",
+  "version": "1.0.0",
+  "title": "Slides",
+  "category": "design",
+  "icon": "images-alt2",
+  "ancestor": [
+    "outstand/carousel"
+  ],
+  "description": "The slides of a carousel.",
+  "textdomain": "outstand-carousel",
+  "allowedBlocks": [
+    "outstand/slide"
+  ],
+  "supports": {
+    "html": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+}

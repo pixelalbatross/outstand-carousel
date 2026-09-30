@@ -1,0 +1,80 @@
+.wp-block-outstand-carousel {
+	--outstand-carousel-per-page: 1;
+	--outstand-carousel-gap: 0px;
+
+	position: relative;
+	min-width: 0;
+}
+
+.wp-block-outstand-slides.splide__track {
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
+}
+
+.wp-block-outstand-slides .splide__list {
+	display: flex;
+	height: 100%;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none;
+	backface-visibility: hidden;
+}
+
+.wp-block-outstand-slide.splide__slide {
+	position: relative;
+	flex-shrink: 0;
+	box-sizing: border-box;
+	margin: 0;
+	list-style: none !important;
+
+	&:focus-visible {
+		outline-offset: -3px;
+	}
+}
+
+/* Before Splide mounts, and without JavaScript, the slides scroll natively. */
+.wp-block-outstand-carousel:not(.is-initialized) {
+
+	.splide__track {
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+	}
+
+	.splide__list {
+		gap: var(--outstand-carousel-gap);
+	}
+
+	.splide__slide {
+		width: calc((100% + var(--outstand-carousel-gap)) / var(--outstand-carousel-per-page) - var(--outstand-carousel-gap));
+		height: var(--outstand-carousel-height, auto);
+		scroll-snap-align: start;
+	}
+}
+
+.wp-block-outstand-carousel.splide--draggable > .splide__track {
+	user-select: none;
+}
+
+.splide__track--fade > .splide__list > .splide__slide {
+	z-index: 0;
+	margin: 0 !important;
+	opacity: 0;
+
+	&.is-active {
+		z-index: 1;
+		opacity: 1;
+	}
+}
+
+.wp-block-outstand-carousel .splide__sr {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	border: 0;
+}

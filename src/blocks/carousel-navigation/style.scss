@@ -1,0 +1,49 @@
+.wp-block-outstand-carousel-navigation__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.25em;
+	border: 0;
+	background: none;
+	color: inherit;
+	line-height: 0;
+	cursor: pointer;
+
+	&[disabled] {
+		opacity: 0.35;
+		cursor: not-allowed;
+	}
+}
+
+.wp-block-outstand-carousel-navigation__icon {
+	fill: currentcolor;
+
+	// Icons from the editor preview are wrapped in a span.
+	&:is(span) {
+		display: contents;
+
+		svg {
+			width: var(--outstand-carousel-icon-size, 24px);
+			height: var(--outstand-carousel-icon-size, 24px);
+			fill: currentcolor;
+		}
+	}
+}
+
+.wp-block-outstand-carousel-navigation__button.is-toggle {
+
+	.is-pause {
+		display: none;
+	}
+
+	&.is-playing {
+
+		.is-play {
+			display: none;
+		}
+
+		.is-pause {
+			display: revert;
+		}
+	}
+}

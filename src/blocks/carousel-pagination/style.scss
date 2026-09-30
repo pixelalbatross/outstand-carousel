@@ -1,0 +1,51 @@
+.wp-block-outstand-carousel-pagination {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+.wp-block-outstand-carousel-pagination__entry {
+	margin: 0;
+}
+
+.wp-block-outstand-carousel-pagination__item {
+	display: block;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+.wp-block-outstand-carousel-pagination.is-type-dots .wp-block-outstand-carousel-pagination__item {
+	width: var(--outstand-carousel-dot-size, 0.625rem);
+	height: var(--outstand-carousel-dot-size, 0.625rem);
+	border-radius: 50%;
+	background: currentcolor;
+	opacity: 0.3;
+
+	&.is-active {
+		opacity: 1;
+	}
+}
+
+.wp-block-outstand-carousel-pagination.is-type-thumbnails .wp-block-outstand-carousel-pagination__item {
+	opacity: 0.5;
+
+	&.is-active,
+	&:hover,
+	&:focus-visible {
+		opacity: 1;
+	}
+}
+
+.wp-block-outstand-carousel-pagination__image,
+.wp-block-outstand-carousel-pagination__number {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--outstand-carousel-thumbnail-width, 4.5rem);
+	height: auto;
+	aspect-ratio: var(--outstand-carousel-thumbnail-aspect-ratio, 1);
+	object-fit: cover;
+}

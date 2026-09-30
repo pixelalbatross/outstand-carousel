@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "outstand/carousel-counter",
+  "version": "1.0.0",
+  "title": "Carousel Counter",
+  "category": "design",
+  "icon": "editor-ol",
+  "ancestor": [
+    "outstand/carousel"
+  ],
+  "description": "The current slide number and the total, such as 1 / 5. Hidden when there is only one slide.",
+  "textdomain": "outstand-carousel",
+  "attributes": {
+    "separator": {
+      "type": "string",
+      "default": " / "
+    },
+    "padNumbers": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "usesContext": [
+    "outstand/carousel/slides"
+  ],
+  "supports": {
+    "html": false,
+    "reusable": false,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontWeight": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    },
+    "interactivity": true
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
