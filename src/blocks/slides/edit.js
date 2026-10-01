@@ -13,7 +13,7 @@ import {
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import { Button, ToolbarButton, ToolbarGroup } from '@wordpress/components';
-import { useDispatch } from '@wordpress/data';
+import { useDispatch, useRegistry } from '@wordpress/data';
 import { image as imageIcon, plus } from '@wordpress/icons';
 
 import { useCarousel } from '../../hooks/use-carousel';
@@ -40,6 +40,7 @@ function createImageSlides( media ) {
 export default function SlidesEdit( { clientId } ) {
 	const { total, activeIndex } = useCarousel( clientId );
 	const { insertBlock, insertBlocks } = useDispatch( blockEditorStore );
+	const registry = useRegistry();
 
 	const blockProps = useBlockProps( { className: 'splide__track' } );
 	const innerBlocksProps = useInnerBlocksProps(
@@ -53,9 +54,30 @@ export default function SlidesEdit( { clientId } ) {
 			total ? activeIndex + 1 : 0,
 			clientId
 		);
-	const addImages = ( media ) =>
-		insertBlocks( createImageSlides( media ), total, clientId );
+	// The media library's gallery frame can report one selection twice, so
+	// images that are already slides are skipped.
+	const addImages = ( media ) => {
+		const slides = registry
+			.select( blockEditorStore )
+			.getBlocks( clientId );
+		const slideImageIds = slides.flatMap( ( slide ) =>
+			slide.innerBlocks.map( ( block ) => block.attributes.id )
+		);
+		const newMedia = media.filter(
+			( item ) => ! slideImageIds.includes( item.id )
+		);
 
+		if ( newMedia.length ) {
+			insertBlocks(
+				createImageSlides( newMedia ),
+				slides.length,
+				clientId
+			);
+		}
+	};
+
+	// The inner block list stays mounted while empty, so the editor knows its
+	// settings and accepts the slides the placeholder inserts.
 	if ( ! total ) {
 		return (
 			<div { ...blockProps }>
@@ -83,6 +105,7 @@ export default function SlidesEdit( { clientId } ) {
 						) }
 					</Button>
 				</MediaPlaceholder>
+				<ul { ...innerBlocksProps } />
 			</div>
 		);
 	}
