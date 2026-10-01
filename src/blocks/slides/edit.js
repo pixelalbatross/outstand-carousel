@@ -19,7 +19,8 @@ import { image as imageIcon, plus } from '@wordpress/icons';
 import { useCarousel } from '../../hooks/use-carousel';
 
 /**
- * Creates one slide per image.
+ * Creates one slide per image. Each image covers its slide, so the image's
+ * focal point decides what stays in view.
  *
  * @param {Object[]} media Selected attachments.
  * @return {Object[]} Slide blocks.
@@ -32,6 +33,7 @@ function createImageSlides( media ) {
 				url: item.url,
 				alt: item.alt,
 				sizeSlug: 'large',
+				scale: 'cover',
 			} ),
 		] )
 	);
