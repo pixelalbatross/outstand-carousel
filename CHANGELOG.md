@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-10-01
+
+### Fixed
+
+- Images picked in an empty carousel's placeholder are added as slides.
+- Picking one image no longer adds it twice.
+
 ## [1.2.0] - 2026-09-30
 
 ### Added
@@ -32,7 +39,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Carousel block, powered by Splide and the Interactivity API, with slides, navigation, pagination (dots or thumbnails) and counter blocks.
 - Editor transform and `wp outstand-carousel migrate` command to convert Slider Block (`pixelalbatross/slider`) sliders. See [MIGRATING.md](MIGRATING.md).
 
-[Unreleased]: https://github.com/pixelalbatross/outstand-carousel/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/pixelalbatross/outstand-carousel/compare/1.2.1...HEAD
+[1.2.1]: https://github.com/pixelalbatross/outstand-carousel/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/pixelalbatross/outstand-carousel/releases/tag/1.0.0
