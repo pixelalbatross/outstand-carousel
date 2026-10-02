@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-10-02
+
+### Added
+
+- Backdrop setting on slides, in the Background panel: a copy of the slide image fills the space around an image that doesn't fill its slide. "Blurred image" enlarges, blurs and slightly lightens it.
+
 ## [1.4.0] - 2026-10-02
 
 ### Added
@@ -66,7 +72,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Carousel block, powered by Splide and the Interactivity API, with slides, navigation, pagination (dots or thumbnails) and counter blocks.
 - Editor transform and `wp outstand-carousel migrate` command to convert Slider Block (`pixelalbatross/slider`) sliders. See [MIGRATING.md](MIGRATING.md).
 
-[Unreleased]: https://github.com/pixelalbatross/outstand-carousel/compare/1.4.0...HEAD
+[Unreleased]: https://github.com/pixelalbatross/outstand-carousel/compare/1.5.0...HEAD
+[1.5.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.4.0...1.5.0
 [1.4.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.3.0...1.4.0
 [1.3.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.2.2...1.3.0
 [1.2.2]: https://github.com/pixelalbatross/outstand-carousel/compare/1.2.1...1.2.2
