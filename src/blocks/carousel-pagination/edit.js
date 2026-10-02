@@ -8,11 +8,7 @@ import {
 	store as blockEditorStore,
 	useBlockProps,
 } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	SelectControl,
-	__experimentalVStack as VStack, // eslint-disable-line @wordpress/no-unsafe-wp-apis
-} from '@wordpress/components';
+import { PanelBody, SelectControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 
 import { getSlideImageUrl, useCarousel } from '../../hooks/use-carousel';
@@ -40,7 +36,7 @@ export default function CarouselPaginationEdit( {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'outstand-carousel' ) }>
-					<VStack spacing={ 4 }>
+					<>
 						<SelectControl
 							label={ __( 'Show as', 'outstand-carousel' ) }
 							value={ type }
@@ -92,7 +88,7 @@ export default function CarouselPaginationEdit( {
 								}
 							/>
 						) }
-					</VStack>
+					</>
 				</PanelBody>
 			</InspectorControls>
 			{ 'progress' === type ? (

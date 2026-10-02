@@ -3,11 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	RangeControl,
-	__experimentalVStack as VStack, // eslint-disable-line @wordpress/no-unsafe-wp-apis
-} from '@wordpress/components';
+import { PanelBody, RangeControl } from '@wordpress/components';
 
 import IconPicker from '../../components/icon-picker';
 import RegistryIcon from '../../components/registry-icon';
@@ -42,7 +38,7 @@ export default function CarouselNavigationEdit( {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Icons', 'outstand-carousel' ) }>
-					<VStack spacing={ 4 }>
+					<>
 						<IconPicker
 							label={ __( 'Previous icon', 'outstand-carousel' ) }
 							value={ previousIcon }
@@ -70,7 +66,7 @@ export default function CarouselNavigationEdit( {
 								setAttributes( { iconSize: value ?? 24 } )
 							}
 						/>
-					</VStack>
+					</>
 				</PanelBody>
 			</InspectorControls>
 			<div { ...blockProps }>

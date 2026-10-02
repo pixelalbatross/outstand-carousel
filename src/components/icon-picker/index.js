@@ -14,7 +14,6 @@ import {
 	useBaseControlProps,
 	__experimentalGrid as Grid, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 	__experimentalText as Text, // eslint-disable-line @wordpress/no-unsafe-wp-apis
-	__experimentalVStack as VStack, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 } from '@wordpress/components';
 import { useEffect, useMemo, useRef, useState } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
@@ -70,7 +69,7 @@ function IconGrid( { icons, value, onSelect } ) {
 	}, [] );
 
 	return (
-		<VStack spacing={ 3 }>
+		<>
 			<SearchControl
 				label={ __( 'Search icons', 'outstand-carousel' ) }
 				value={ search }
@@ -101,7 +100,7 @@ function IconGrid( { icons, value, onSelect } ) {
 					{ __( 'No icons match your search.', 'outstand-carousel' ) }
 				</Text>
 			) }
-		</VStack>
+		</>
 	);
 }
 

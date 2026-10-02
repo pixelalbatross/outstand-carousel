@@ -3,12 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	TextControl,
-	ToggleControl,
-	__experimentalVStack as VStack, // eslint-disable-line @wordpress/no-unsafe-wp-apis
-} from '@wordpress/components';
+import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 
 import { formatCounter } from '../../shared/counter';
 import { useCarousel } from '../../hooks/use-carousel';
@@ -25,7 +20,7 @@ export default function CarouselCounterEdit( {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'outstand-carousel' ) }>
-					<VStack spacing={ 4 }>
+					<>
 						<TextControl
 							label={ __( 'Separator', 'outstand-carousel' ) }
 							value={ separator }
@@ -47,7 +42,7 @@ export default function CarouselCounterEdit( {
 								setAttributes( { padNumbers: value } )
 							}
 						/>
-					</VStack>
+					</>
 				</PanelBody>
 			</InspectorControls>
 			<div { ...useBlockProps() }>
