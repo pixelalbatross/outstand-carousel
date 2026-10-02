@@ -28,10 +28,8 @@ class ComposerStaticInit6a0ee91884a9baf28391d3b7a24a776d
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Outstand\\WP\\Carousel\\BaseModule' => __DIR__ . '/../..' . '/includes/BaseModule.php',
         'Outstand\\WP\\Carousel\\Blocks' => __DIR__ . '/../..' . '/includes/Blocks.php',
-        'Outstand\\WP\\Carousel\\CLI\\MigrateCommand' => __DIR__ . '/../..' . '/includes/CLI/MigrateCommand.php',
         'Outstand\\WP\\Carousel\\Icons' => __DIR__ . '/../..' . '/includes/Icons.php',
         'Outstand\\WP\\Carousel\\Interactivity' => __DIR__ . '/../..' . '/includes/Interactivity.php',
-        'Outstand\\WP\\Carousel\\LegacyConverter' => __DIR__ . '/../..' . '/includes/LegacyConverter.php',
         'Outstand\\WP\\Carousel\\Plugin' => __DIR__ . '/../..' . '/includes/Plugin.php',
         'Outstand\\WP\\Carousel\\Slides' => __DIR__ . '/../..' . '/includes/Slides.php',
     );

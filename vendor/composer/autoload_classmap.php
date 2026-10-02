@@ -9,10 +9,8 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Outstand\\WP\\Carousel\\BaseModule' => $baseDir . '/includes/BaseModule.php',
     'Outstand\\WP\\Carousel\\Blocks' => $baseDir . '/includes/Blocks.php',
-    'Outstand\\WP\\Carousel\\CLI\\MigrateCommand' => $baseDir . '/includes/CLI/MigrateCommand.php',
     'Outstand\\WP\\Carousel\\Icons' => $baseDir . '/includes/Icons.php',
     'Outstand\\WP\\Carousel\\Interactivity' => $baseDir . '/includes/Interactivity.php',
-    'Outstand\\WP\\Carousel\\LegacyConverter' => $baseDir . '/includes/LegacyConverter.php',
     'Outstand\\WP\\Carousel\\Plugin' => $baseDir . '/includes/Plugin.php',
     'Outstand\\WP\\Carousel\\Slides' => $baseDir . '/includes/Slides.php',
 );

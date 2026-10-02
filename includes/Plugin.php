@@ -37,7 +37,6 @@ class Plugin {
 		$modules = [
 			new Blocks(),
 			new Icons(),
-			new CLI\MigrateCommand(),
 		];
 
 		foreach ( $modules as $module ) {
