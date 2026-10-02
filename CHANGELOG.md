@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-10-02
+
+### Added
+
+- Custom properties themes can override: `--outstand-carousel-backdrop-veil` and `--outstand-carousel-backdrop-filter` for the blurred image backdrop, `--outstand-carousel-dot-opacity`, `--outstand-carousel-thumbnail-radius`, `--outstand-carousel-thumbnail-opacity`, `--outstand-carousel-progress-track` and `--outstand-carousel-button-disabled-opacity`. Defaults are unchanged.
+
+### Changed
+
+- The blurred image backdrop has a light white veil, so dark areas at the edges of a photo don't weigh on the slide.
+
 ## [1.5.0] - 2026-10-02
 
 ### Added
@@ -72,7 +82,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Carousel block, powered by Splide and the Interactivity API, with slides, navigation, pagination (dots or thumbnails) and counter blocks.
 - Editor transform and `wp outstand-carousel migrate` command to convert Slider Block (`pixelalbatross/slider`) sliders. See [MIGRATING.md](MIGRATING.md).
 
-[Unreleased]: https://github.com/pixelalbatross/outstand-carousel/compare/1.5.0...HEAD
+[Unreleased]: https://github.com/pixelalbatross/outstand-carousel/compare/1.6.0...HEAD
+[1.6.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.5.0...1.6.0
 [1.5.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.4.0...1.5.0
 [1.4.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.3.0...1.4.0
 [1.3.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.2.2...1.3.0

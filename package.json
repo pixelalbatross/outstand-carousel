@@ -1,6 +1,6 @@
 {
   "name": "outstand-carousel",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Carousel block with composable navigation, pagination and counter, powered by Splide and the Interactivity API.",
   "contributors": [
     {
