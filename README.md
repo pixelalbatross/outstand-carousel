@@ -93,9 +93,16 @@ The editor sidebar is outside the canvas, so load the rule there too, for exampl
 | Property | Default | Used by |
 | --- | --- | --- |
 | `--outstand-carousel-dot-size` | `0.625rem` | Pagination dots |
+| `--outstand-carousel-dot-opacity` | `0.3` | Pagination dots: inactive dots |
 | `--outstand-carousel-thumbnail-width` | `4.5rem` | Pagination thumbnails |
 | `--outstand-carousel-thumbnail-aspect-ratio` | `1` | Pagination thumbnails |
+| `--outstand-carousel-thumbnail-radius` | `0` | Pagination thumbnails |
+| `--outstand-carousel-thumbnail-opacity` | `0.5` | Pagination thumbnails: inactive thumbnails |
 | `--outstand-carousel-progress-height` | `0.25rem` | Pagination progress bar |
+| `--outstand-carousel-progress-track` | `color-mix(in srgb, currentcolor 20%, transparent)` | Pagination progress bar: track behind the bar |
+| `--outstand-carousel-button-disabled-opacity` | `0.35` | Navigation: disabled buttons |
+| `--outstand-carousel-backdrop-veil` | `rgb(255 255 255 / 0.4)` | Slide backdrop: colour laid over the blurred image; `transparent` removes it |
+| `--outstand-carousel-backdrop-filter` | `blur(2.5rem) saturate(1.1) brightness(1.08)` | Slide backdrop: filter of the blurred image |
 
 ## Development
 

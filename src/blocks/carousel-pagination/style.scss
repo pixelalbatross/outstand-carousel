@@ -22,15 +22,21 @@
 	height: var(--outstand-carousel-dot-size, 0.625rem);
 	border-radius: 50%;
 	background: currentcolor;
-	opacity: 0.3;
+	opacity: var(--outstand-carousel-dot-opacity, 0.3);
 
 	&.is-active {
 		opacity: 1;
 	}
 }
 
+// Zero specificity, so a theme's own thumbnail radius keeps working.
+:where(.wp-block-outstand-carousel-pagination.is-type-thumbnails .wp-block-outstand-carousel-pagination__item) {
+	overflow: hidden;
+	border-radius: var(--outstand-carousel-thumbnail-radius, 0);
+}
+
 .wp-block-outstand-carousel-pagination.is-type-thumbnails .wp-block-outstand-carousel-pagination__item {
-	opacity: 0.5;
+	opacity: var(--outstand-carousel-thumbnail-opacity, 0.5);
 
 	&.is-active,
 	&:hover,
@@ -54,7 +60,7 @@
 	display: block;
 	height: var(--outstand-carousel-progress-height, 0.25rem);
 	overflow: hidden;
-	background-color: color-mix(in srgb, currentcolor 20%, transparent);
+	background-color: var(--outstand-carousel-progress-track, color-mix(in srgb, currentcolor 20%, transparent));
 }
 
 .wp-block-outstand-carousel-pagination__progress {

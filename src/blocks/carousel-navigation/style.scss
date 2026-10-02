@@ -10,7 +10,7 @@
 	cursor: pointer;
 
 	&[disabled] {
-		opacity: 0.35;
+		opacity: var(--outstand-carousel-button-disabled-opacity, 0.35);
 		cursor: not-allowed;
 	}
 }
