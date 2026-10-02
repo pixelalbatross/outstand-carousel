@@ -1,6 +1,7 @@
 /**
  * Carousel block editor.
  */
+import clsx from 'clsx';
 import { __ } from '@wordpress/i18n';
 import {
 	InspectorControls,
@@ -12,9 +13,31 @@ import {
 	RangeControl,
 	SelectControl,
 	ToggleControl,
+	__experimentalToggleGroupControl as ToggleGroupControl, // eslint-disable-line @wordpress/no-unsafe-wp-apis
+	__experimentalToggleGroupControlOption as ToggleGroupControlOption, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 	__experimentalUnitControl as UnitControl, // eslint-disable-line @wordpress/no-unsafe-wp-apis
-	__experimentalVStack as VStack, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 } from '@wordpress/components';
+
+const ASPECT_RATIOS = [
+	{ value: '', label: __( 'Auto', 'outstand-carousel' ) },
+	{ value: '1', label: __( 'Square - 1:1', 'outstand-carousel' ) },
+	{ value: '4/3', label: __( 'Standard - 4:3', 'outstand-carousel' ) },
+	{ value: '3/4', label: __( 'Portrait - 3:4', 'outstand-carousel' ) },
+	{ value: '3/2', label: __( 'Classic - 3:2', 'outstand-carousel' ) },
+	{
+		value: '2/3',
+		label: __( 'Classic portrait - 2:3', 'outstand-carousel' ),
+	},
+	{ value: '16/10', label: __( 'Wide - 16:10', 'outstand-carousel' ) },
+	{ value: '16/9', label: __( 'Wide - 16:9', 'outstand-carousel' ) },
+	{ value: '9/16', label: __( 'Tall - 9:16', 'outstand-carousel' ) },
+];
+
+const HEIGHT_UNITS = [
+	{ value: 'vh', label: 'vh', default: 80 },
+	{ value: 'px', label: 'px', default: 600 },
+	{ value: 'rem', label: 'rem', default: 40 },
+];
 
 const TEMPLATE = [
 	[ 'outstand/slides' ],
@@ -29,6 +52,9 @@ export default function CarouselEdit( { attributes, setAttributes } ) {
 		perPageMobile,
 		gap,
 		height,
+		aspectRatio,
+		maxHeight,
+		imageFit,
 		speed,
 		rewind,
 		autoHeight,
@@ -42,12 +68,20 @@ export default function CarouselEdit( { attributes, setAttributes } ) {
 
 	const isFade = 'fade' === type;
 
+	const isSized = !! aspectRatio || !! maxHeight;
+
 	const blockProps = useBlockProps( {
-		className: 'splide',
+		className: clsx( 'splide', {
+			'has-slide-aspect-ratio': !! aspectRatio,
+			'has-slide-max-height': !! maxHeight,
+		} ),
 		style: {
 			'--outstand-carousel-per-page': isFade ? 1 : perPage,
 			'--outstand-carousel-gap': gap || undefined,
 			'--outstand-carousel-height': height || undefined,
+			'--outstand-carousel-aspect-ratio': aspectRatio || undefined,
+			'--outstand-carousel-max-height': maxHeight || undefined,
+			'--outstand-carousel-image-fit': imageFit || undefined,
 		},
 	} );
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
@@ -58,7 +92,7 @@ export default function CarouselEdit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'outstand-carousel' ) }>
-					<VStack spacing={ 4 }>
+					<>
 						<SelectControl
 							label={ __( 'Type', 'outstand-carousel' ) }
 							value={ type }
@@ -140,6 +174,62 @@ export default function CarouselEdit( { attributes, setAttributes } ) {
 								setAttributes( { height: value ?? '' } )
 							}
 						/>
+						<SelectControl
+							label={ __( 'Slide ratio', 'outstand-carousel' ) }
+							help={ __(
+								'Auto sizes the slides to their content, so images keep their ratio. A fixed slide height takes priority.',
+								'outstand-carousel'
+							) }
+							value={ aspectRatio }
+							options={ ASPECT_RATIOS }
+							onChange={ ( value ) =>
+								setAttributes( { aspectRatio: value } )
+							}
+						/>
+						<UnitControl
+							label={ __(
+								'Maximum slide height',
+								'outstand-carousel'
+							) }
+							help={ __(
+								'Such as 80vh, to keep tall slides within the screen. Leave empty for no limit.',
+								'outstand-carousel'
+							) }
+							value={ maxHeight }
+							units={ HEIGHT_UNITS }
+							onChange={ ( value ) =>
+								setAttributes( { maxHeight: value ?? '' } )
+							}
+						/>
+						{ isSized && (
+							<ToggleGroupControl
+								label={ __( 'Image fit', 'outstand-carousel' ) }
+								help={ __(
+									'How images fill a slide of another shape. An image can set its own scale in its Styles.',
+									'outstand-carousel'
+								) }
+								value={ imageFit || 'cover' }
+								onChange={ ( value ) =>
+									setAttributes( {
+										imageFit:
+											'cover' === value ? '' : value,
+									} )
+								}
+								isBlock
+							>
+								<ToggleGroupControlOption
+									value="cover"
+									label={ __( 'Cover', 'outstand-carousel' ) }
+								/>
+								<ToggleGroupControlOption
+									value="contain"
+									label={ __(
+										'Contain',
+										'outstand-carousel'
+									) }
+								/>
+							</ToggleGroupControl>
+						) }
 						<RangeControl
 							label={ __(
 								'Transition speed (ms)',
@@ -218,13 +308,13 @@ export default function CarouselEdit( { attributes, setAttributes } ) {
 								setAttributes( { hashNavigation: value } )
 							}
 						/>
-					</VStack>
+					</>
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Autoplay', 'outstand-carousel' ) }
 					initialOpen={ autoplay }
 				>
-					<VStack spacing={ 4 }>
+					<>
 						<ToggleControl
 							label={ __( 'Autoplay', 'outstand-carousel' ) }
 							help={ __(
@@ -265,7 +355,7 @@ export default function CarouselEdit( { attributes, setAttributes } ) {
 								/>
 							</>
 						) }
-					</VStack>
+					</>
 				</PanelBody>
 			</InspectorControls>
 			<div { ...innerBlocksProps } />

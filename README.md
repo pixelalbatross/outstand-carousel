@@ -16,6 +16,7 @@ Carousel settings:
 - type: slide, loop or fade;
 - slides per page, with a separate value for mobile;
 - gap, slide height and transition speed;
+- slide ratio (auto, so images keep their ratio, or a fixed ratio such as 16:9), maximum slide height, and how images fill a sized slide (cover or contain);
 - rewind, center the active slide, free drag and fit the height to each slide;
 - autoplay, with interval and pause on hover;
 - hash navigation: each slide can have a URL hash, such as `#team`, that opens the carousel on it, and the URL follows the active slide.
@@ -45,10 +46,6 @@ composer require outstand/carousel
 ```
 
 Then activate the plugin from your WordPress admin area or with WP-CLI.
-
-## Migrating from Slider Block
-
-Outstand Carousel replaces [Slider Block](https://github.com/pixelalbatross/slider-block) (`pixelalbatross/slider`). See [MIGRATING.md](MIGRATING.md) to convert existing sliders in the editor or with WP-CLI.
 
 ## Customization
 

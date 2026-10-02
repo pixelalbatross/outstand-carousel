@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Outstand Carousel 1.2.0\n"
+"Project-Id-Version: Outstand Carousel 1.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/outstand-carousel\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-30T22:15:39+00:00\n"
+"POT-Creation-Date: 2026-10-02T09:13:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: outstand-carousel\n"
@@ -41,13 +41,13 @@ msgid "https://outstand.site/?utm_source=wp-plugins&utm_medium=outstand-carousel
 msgstr ""
 
 #: build/blocks/carousel-navigation/render.php:33
-#: build/blocks/carousel/render.php:42
+#: build/blocks/carousel/render.php:50
 #: build/blocks/carousel-navigation/index.js:2
 msgid "Previous slide"
 msgstr ""
 
 #: build/blocks/carousel-navigation/render.php:62
-#: build/blocks/carousel/render.php:43
+#: build/blocks/carousel/render.php:51
 #: build/blocks/carousel-navigation/index.js:2
 msgid "Next slide"
 msgstr ""
@@ -59,87 +59,53 @@ msgstr ""
 msgid "Go to slide %d"
 msgstr ""
 
-#: build/blocks/carousel/render.php:44
+#: build/blocks/carousel/render.php:52
 msgid "Go to first slide"
 msgstr ""
 
-#: build/blocks/carousel/render.php:45
+#: build/blocks/carousel/render.php:53
 msgid "Go to last slide"
 msgstr ""
 
 #. translators: %s: slide number.
-#: build/blocks/carousel/render.php:47
+#: build/blocks/carousel/render.php:55
 #, php-format
 msgid "Go to slide %s"
 msgstr ""
 
 #. translators: %s: page number.
-#: build/blocks/carousel/render.php:49
+#: build/blocks/carousel/render.php:57
 #, php-format
 msgid "Go to page %s"
 msgstr ""
 
-#: build/blocks/carousel/render.php:50
+#: build/blocks/carousel/render.php:58
 #: includes/Interactivity.php:32
 msgid "Start autoplay"
 msgstr ""
 
-#: build/blocks/carousel/render.php:51
+#: build/blocks/carousel/render.php:59
 #: includes/Interactivity.php:33
 #: build/blocks/carousel-navigation/index.js:2
 msgid "Pause autoplay"
 msgstr ""
 
-#: build/blocks/carousel/render.php:52
+#: build/blocks/carousel/render.php:60
 msgid "carousel"
 msgstr ""
 
-#: build/blocks/carousel/render.php:53
+#: build/blocks/carousel/render.php:61
 msgid "slide"
 msgstr ""
 
-#: build/blocks/carousel/render.php:54
+#: build/blocks/carousel/render.php:62
 msgid "Select a slide to show"
 msgstr ""
 
 #. translators: 1: slide number, 2: number of slides.
-#: build/blocks/carousel/render.php:56
+#: build/blocks/carousel/render.php:64
 #, php-format
 msgid "%1$s of %2$s"
-msgstr ""
-
-#: includes/CLI/MigrateCommand.php:62
-msgid "No Slider Block sliders found."
-msgstr ""
-
-#: includes/CLI/MigrateCommand.php:87
-msgid "would convert"
-msgstr ""
-
-#: includes/CLI/MigrateCommand.php:87
-msgid "converted"
-msgstr ""
-
-#. translators: 1: number of sliders, 2: number of posts.
-#: includes/CLI/MigrateCommand.php:119
-#, php-format
-msgid "%1$d slider(s) in %2$d post(s) would be converted. Run again without --dry-run to save."
-msgstr ""
-
-#. translators: 1: number of sliders, 2: number of posts.
-#: includes/CLI/MigrateCommand.php:121
-#, php-format
-msgid "Converted %1$d slider(s) in %2$d post(s)."
-msgstr ""
-
-#: includes/CLI/MigrateCommand.php:169
-#: build/blocks/carousel/index.js:1
-msgid "slider width dropped, use the block width or alignment"
-msgstr ""
-
-#: includes/CLI/MigrateCommand.php:171
-#: build/blocks/carousel/index.js:1
-msgid "pagination type replaced with dots"
 msgstr ""
 
 #: includes/Icons.php:46
@@ -228,6 +194,42 @@ msgid "Thumbnail size"
 msgstr ""
 
 #: build/blocks/carousel/index.js:1
+msgid "Auto"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Square - 1:1"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Standard - 4:3"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Portrait - 3:4"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Classic - 3:2"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Classic portrait - 2:3"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Wide - 16:10"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Wide - 16:9"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Tall - 9:16"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
 msgid "Type"
 msgstr ""
 
@@ -269,6 +271,38 @@ msgstr ""
 
 #: build/blocks/carousel/index.js:1
 msgid "Leave empty to fit the content."
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Slide ratio"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Auto sizes the slides to their content, so images keep their ratio. A fixed slide height takes priority."
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Maximum slide height"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Such as 80vh, to keep tall slides within the screen. Leave empty for no limit."
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Image fit"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "How images fill a slide of another shape. An image can set its own scale in its Styles."
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Cover"
+msgstr ""
+
+#: build/blocks/carousel/index.js:1
+msgid "Contain"
 msgstr ""
 
 #: build/blocks/carousel/index.js:1
@@ -321,12 +355,6 @@ msgstr ""
 
 #: build/blocks/carousel/index.js:1
 msgid "Pause on hover"
-msgstr ""
-
-#. translators: %s: list of settings.
-#: build/blocks/carousel/index.js:2
-#, js-format
-msgid "Slider converted to a carousel. Settings without an equivalent: %s."
 msgstr ""
 
 #: build/blocks/slide/index.js:1

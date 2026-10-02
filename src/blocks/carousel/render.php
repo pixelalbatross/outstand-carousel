@@ -23,6 +23,14 @@ $carousel_type   = in_array( $attributes['type'], [ 'slide', 'loop', 'fade' ], t
 $slides_per_page = 'fade' === $carousel_type ? 1 : max( 1, (int) $attributes['perPage'] );
 $gap             = (string) $attributes['gap'];
 $height          = (string) $attributes['height'];
+$aspect_ratio    = (string) ( $attributes['aspectRatio'] ?? '' );
+$max_height      = (string) ( $attributes['maxHeight'] ?? '' );
+$image_fit       = in_array( $attributes['imageFit'] ?? '', [ 'cover', 'contain' ], true ) ? $attributes['imageFit'] : '';
+
+// A ratio is a number or two numbers divided by a slash, such as "16/9".
+if ( ! preg_match( '#^\d+(\.\d+)?(\s*/\s*\d+(\.\d+)?)?$#', $aspect_ratio ) ) {
+	$aspect_ratio = '';
+}
 
 $options = [
 	'type'         => $carousel_type,
@@ -102,8 +110,24 @@ if ( '' !== $height ) {
 	$styles[] = '--outstand-carousel-height:' . $height;
 }
 
+$classes = [ 'splide' ];
+
+if ( '' !== $aspect_ratio ) {
+	$styles[]  = '--outstand-carousel-aspect-ratio:' . $aspect_ratio;
+	$classes[] = 'has-slide-aspect-ratio';
+}
+
+if ( '' !== $max_height ) {
+	$styles[]  = '--outstand-carousel-max-height:' . $max_height;
+	$classes[] = 'has-slide-max-height';
+}
+
+if ( '' !== $image_fit ) {
+	$styles[] = '--outstand-carousel-image-fit:' . $image_fit;
+}
+
 $extra_attributes = [
-	'class' => 'splide',
+	'class' => implode( ' ', $classes ),
 	'style' => implode( ';', $styles ) . ';',
 ];
 

@@ -30,6 +30,19 @@
       "type": "string",
       "default": ""
     },
+    "aspectRatio": {
+      "type": "string",
+      "default": ""
+    },
+    "maxHeight": {
+      "type": "string",
+      "default": ""
+    },
+    "imageFit": {
+      "type": "string",
+      "enum": [ "", "cover", "contain" ],
+      "default": ""
+    },
     "speed": {
       "type": "number",
       "default": 400

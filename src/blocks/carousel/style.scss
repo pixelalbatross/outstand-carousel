@@ -33,6 +33,41 @@
 	}
 }
 
+/*
+ * Slide ratio and maximum height. An image placed directly in a sized slide
+ * fits it: the carousel's image fit applies, cover by default, unless the
+ * image sets its own scale.
+ */
+.wp-block-outstand-carousel.has-slide-aspect-ratio .wp-block-outstand-slide {
+	aspect-ratio: var(--outstand-carousel-aspect-ratio);
+}
+
+.wp-block-outstand-carousel.has-slide-max-height .wp-block-outstand-slide {
+	max-height: var(--outstand-carousel-max-height);
+}
+
+.wp-block-outstand-carousel:is(.has-slide-aspect-ratio, .has-slide-max-height) .wp-block-outstand-slide > .wp-block-image {
+	margin: 0;
+
+	img {
+		width: 100%;
+		object-fit: var(--outstand-carousel-image-fit, cover);
+	}
+}
+
+.wp-block-outstand-carousel.has-slide-aspect-ratio .wp-block-outstand-slide > .wp-block-image {
+	height: 100%;
+
+	/* The editor sets an inline `height: auto` on images. */
+	img {
+		height: 100% !important;
+	}
+}
+
+.wp-block-outstand-carousel.has-slide-max-height .wp-block-outstand-slide > .wp-block-image img {
+	max-height: var(--outstand-carousel-max-height);
+}
+
 /* Before Splide mounts, and without JavaScript, the slides scroll natively. */
 .wp-block-outstand-carousel:not(.is-initialized) {
 
