@@ -13,6 +13,11 @@
     "hash": {
       "type": "string",
       "default": ""
+    },
+    "backdrop": {
+      "type": "string",
+      "enum": [ "", "blur" ],
+      "default": ""
     }
   },
   "usesContext": [ "outstand/carousel/hashNavigation" ],

@@ -50,6 +50,18 @@ class Slides {
 	}
 
 	/**
+	 * Returns a small copy of the image that represents a slide, for its backdrop.
+	 *
+	 * @param  array $slide Parsed `outstand/slide` block.
+	 * @return string Image URL, or an empty string when the slide has no media.
+	 */
+	public static function get_backdrop_url( array $slide ): string {
+		$media_id = self::get_media_id( $slide );
+
+		return $media_id ? (string) wp_get_attachment_image_url( $media_id, 'medium' ) : '';
+	}
+
+	/**
 	 * Finds the first block with a given name, depth first.
 	 *
 	 * @param  array[] $blocks Parsed blocks.

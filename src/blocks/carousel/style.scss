@@ -79,6 +79,28 @@
 	background-color: transparent;
 }
 
+/*
+ * Backdrop: a copy of the slide's image fills the space around an image that
+ * doesn't fill its slide. "blur" enlarges, blurs and lightens it.
+ */
+.wp-block-outstand-slide.has-backdrop-blur {
+	isolation: isolate;
+	overflow: hidden;
+
+	&::before {
+		position: absolute;
+		z-index: -1;
+		inset: -10%;
+		background: var(--outstand-carousel-backdrop) center / cover no-repeat;
+		filter: blur(2.5rem) saturate(1.1) brightness(1.08);
+		content: "";
+	}
+}
+
+.wp-block-outstand-carousel .wp-block-outstand-slide.has-backdrop-blur > .wp-block-image img {
+	background-color: transparent;
+}
+
 /* Before Splide mounts, and without JavaScript, the slides scroll natively. */
 .wp-block-outstand-carousel:not(.is-initialized) {
 

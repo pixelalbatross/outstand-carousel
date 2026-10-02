@@ -21,6 +21,7 @@ import { useDispatch, useSelect } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import { plus } from '@wordpress/icons';
 
+import BackdropControl from '../../components/backdrop-control';
 import { useCarousel } from '../../hooks/use-carousel';
 
 // Spaces and `#` aren't valid in a URL hash.
@@ -36,11 +37,12 @@ export default function SlideEdit( {
 	context,
 } ) {
 	const { activeIndex, perPage, goTo } = useCarousel( clientId );
-	const { index, parentId, hasChildSelected } = useSelect(
+	const { index, parentId, hasChildSelected, imageUrl } = useSelect(
 		( select ) => {
 			const {
 				getBlockIndex,
 				getBlockRootClientId,
+				getBlocks,
 				hasSelectedInnerBlock,
 			} = select( blockEditorStore );
 
@@ -48,6 +50,9 @@ export default function SlideEdit( {
 				index: getBlockIndex( clientId ),
 				parentId: getBlockRootClientId( clientId ),
 				hasChildSelected: hasSelectedInnerBlock( clientId, true ),
+				imageUrl: getBlocks( clientId ).find(
+					( block ) => block.name === 'core/image'
+				)?.attributes.url,
 			};
 		},
 		[ clientId ]
@@ -63,11 +68,16 @@ export default function SlideEdit( {
 		}
 	}, [ isSelected, hasChildSelected, isVisible, index, goTo ] );
 
+	const backdropUrl = attributes.backdrop ? imageUrl : undefined;
 	const blockProps = useBlockProps( {
 		className: clsx( 'splide__slide', {
 			'is-active': index === activeIndex,
 			'is-visible': isVisible,
+			[ `has-backdrop-${ attributes.backdrop }` ]: !! backdropUrl,
 		} ),
+		style: backdropUrl
+			? { '--outstand-carousel-backdrop': `url(${ backdropUrl })` }
+			: undefined,
 	} );
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
 		template: TEMPLATE,
@@ -97,6 +107,11 @@ export default function SlideEdit( {
 					</PanelBody>
 				</InspectorControls>
 			) }
+			<BackdropControl
+				value={ attributes.backdrop }
+				onChange={ ( value ) => setAttributes( { backdrop: value } ) }
+				clientId={ clientId }
+			/>
 			<BlockControls group="other">
 				<ToolbarGroup>
 					<ToolbarButton
