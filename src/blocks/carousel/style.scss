@@ -81,7 +81,8 @@
 
 /*
  * Backdrop: a copy of the slide's image fills the space around an image that
- * doesn't fill its slide. "blur" enlarges, blurs and lightens it.
+ * doesn't fill its slide. "blur" enlarges, blurs and lightens it; a white
+ * veil evens out dark areas, such as hair at the edge of a photo.
  */
 .wp-block-outstand-slide.has-backdrop-blur {
 	isolation: isolate;
@@ -91,8 +92,10 @@
 		position: absolute;
 		z-index: -1;
 		inset: -10%;
-		background: var(--outstand-carousel-backdrop) center / cover no-repeat;
-		filter: blur(2.5rem) saturate(1.1) brightness(1.08);
+		background:
+			linear-gradient(var(--outstand-carousel-backdrop-veil, rgb(255 255 255 / 0.4)), var(--outstand-carousel-backdrop-veil, rgb(255 255 255 / 0.4))),
+			var(--outstand-carousel-backdrop) center / cover no-repeat;
+		filter: var(--outstand-carousel-backdrop-filter, blur(2.5rem) saturate(1.1) brightness(1.08));
 		content: "";
 	}
 }
