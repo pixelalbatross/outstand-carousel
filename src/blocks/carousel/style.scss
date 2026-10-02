@@ -68,6 +68,17 @@
 	max-height: var(--outstand-carousel-max-height);
 }
 
+/*
+ * A background colour on a slide, the slides or the carousel shows around an
+ * image that doesn't fill its slide, over any placeholder colour an image
+ * plugin paints on the image itself.
+ */
+.wp-block-outstand-carousel.has-background .wp-block-outstand-slide > .wp-block-image img,
+.wp-block-outstand-carousel .wp-block-outstand-slides.has-background .wp-block-outstand-slide > .wp-block-image img,
+.wp-block-outstand-carousel .wp-block-outstand-slide.has-background > .wp-block-image img {
+	background-color: transparent;
+}
+
 /* Before Splide mounts, and without JavaScript, the slides scroll natively. */
 .wp-block-outstand-carousel:not(.is-initialized) {
 
