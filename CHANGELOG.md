@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-10-02
+
+### Added
+
+- Background colour on the Slides block, which paints only the slides area.
+- A background colour on a slide, the Slides block or the carousel shows around images that don't fill their slide, over the placeholder colour image plugins such as Performance Lab paint on the image. A slide's colour wins over the Slides block's.
+
 ## [1.3.0] - 2026-10-02
 
 ### Added
@@ -59,7 +66,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Carousel block, powered by Splide and the Interactivity API, with slides, navigation, pagination (dots or thumbnails) and counter blocks.
 - Editor transform and `wp outstand-carousel migrate` command to convert Slider Block (`pixelalbatross/slider`) sliders. See [MIGRATING.md](MIGRATING.md).
 
-[Unreleased]: https://github.com/pixelalbatross/outstand-carousel/compare/1.3.0...HEAD
+[Unreleased]: https://github.com/pixelalbatross/outstand-carousel/compare/1.4.0...HEAD
+[1.4.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.3.0...1.4.0
 [1.3.0]: https://github.com/pixelalbatross/outstand-carousel/compare/1.2.2...1.3.0
 [1.2.2]: https://github.com/pixelalbatross/outstand-carousel/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/pixelalbatross/outstand-carousel/compare/1.2.0...1.2.1
