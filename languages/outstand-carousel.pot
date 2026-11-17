@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Outstand Carousel 1.6.0\n"
+"Project-Id-Version: Outstand Carousel 1.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/outstand-carousel\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-02T13:55:17+00:00\n"
+"POT-Creation-Date: 2026-11-17T18:54:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: outstand-carousel\n"
@@ -106,6 +106,91 @@ msgstr ""
 #: build/blocks/carousel/render.php:64
 #, php-format
 msgid "%1$s of %2$s"
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:137
+msgid "No Slider Block sliders found."
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:161
+msgid "The --post_type option needs at least one post type."
+msgstr ""
+
+#. translators: %s: post type name.
+#: includes/CLI/MigrateCommand.php:167
+#, php-format
+msgid "The \"%s\" post type does not exist."
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:197
+msgid "The --include option needs at least one post ID."
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:262
+#: includes/CLI/MigrateCommand.php:335
+msgid "would convert"
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:262
+#: includes/CLI/MigrateCommand.php:335
+msgid "converted"
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:268
+msgid "skipped: the scheduled date has passed, and saving would publish the post"
+msgstr ""
+
+#. translators: %s: error message.
+#: includes/CLI/MigrateCommand.php:288
+#, php-format
+msgid "failed: %s"
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:291
+msgid "failed: the post was not saved"
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:349
+msgid "failed: the widgets were not saved"
+msgstr ""
+
+#. translators: %d: number of posts.
+#: includes/CLI/MigrateCommand.php:411
+#, php-format
+msgid "%d post(s) skipped. See the status column."
+msgstr ""
+
+#. translators: 1: number of sliders, 2: number of posts and widgets, 3: number of failed saves.
+#: includes/CLI/MigrateCommand.php:416
+#, php-format
+msgid "Converted %1$d slider(s) in %2$d post(s) and widget(s). %3$d save(s) failed. See the status column."
+msgstr ""
+
+#. translators: 1: number of sliders, 2: number of posts and widgets.
+#: includes/CLI/MigrateCommand.php:421
+#, php-format
+msgid "%1$d slider(s) in %2$d post(s) and widget(s) would be converted. Run again without --dry-run to save."
+msgstr ""
+
+#. translators: 1: number of sliders, 2: number of posts and widgets.
+#: includes/CLI/MigrateCommand.php:423
+#, php-format
+msgid "Converted %1$d slider(s) in %2$d post(s) and widget(s)."
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:447
+#: build/blocks/carousel/index.js:1
+msgid "slider height dropped, it had no visible effect"
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:449
+#: build/blocks/carousel/index.js:1
+msgid "slider width dropped, use the block width or alignment"
+msgstr ""
+
+#: includes/CLI/MigrateCommand.php:451
+#: build/blocks/carousel/index.js:1
+msgid "pagination type replaced with dots"
 msgstr ""
 
 #: includes/Icons.php:46
@@ -355,6 +440,12 @@ msgstr ""
 
 #: build/blocks/carousel/index.js:1
 msgid "Pause on hover"
+msgstr ""
+
+#. translators: %s: list of settings.
+#: build/blocks/carousel/index.js:2
+#, js-format
+msgid "Slider converted to a carousel. Settings without an equivalent: %s."
 msgstr ""
 
 #: build/blocks/slide/index.js:1
