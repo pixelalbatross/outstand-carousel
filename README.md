@@ -49,6 +49,10 @@ composer require outstand/carousel
 
 Then activate the plugin from your WordPress admin area or with WP-CLI.
 
+## Migrating from Slider Block
+
+Outstand Carousel replaces [Slider Block](https://github.com/pixelalbatross/slider-block) (`pixelalbatross/slider`). See [MIGRATING.md](MIGRATING.md) to convert existing sliders in the editor or with WP-CLI. While Slider Block is inactive, Outstand Carousel shows the old sliders on the front end as its own carousels.
+
 ## Customization
 
 ### Splide options

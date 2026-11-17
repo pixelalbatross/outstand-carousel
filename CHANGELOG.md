@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Editor transform and `wp outstand-carousel migrate` command to convert Slider Block (`pixelalbatross/slider`) sliders, including sliders inside slides. See [MIGRATING.md](MIGRATING.md).
+- The `wp outstand-carousel migrate` command converts the sliders in block widgets too; with `--dry-run`, it only lists them.
+- While Slider Block is inactive, the front end shows Slider Block sliders as carousels, so pages keep their sliders until the content is converted.
+
+### Changed
+
+- Compared with the 1.2.2 migration, the slider height is dropped and listed as a setting without an equivalent, because it had no visible effect in Slider Block. The gap keeps the pixels Swiper used, whatever the unit.
+- Compared with the 1.2.2 command, `wp outstand-carousel migrate` skips scheduled posts whose date has passed, counts only the posts and widgets it saved, ends with an error when a save fails, stops when `--include` has no valid post ID or `--post_type` names no existing post type, and clears the in-memory object cache after every 100 posts.
+
 ## [1.6.0] - 2026-10-02
 
 ### Added

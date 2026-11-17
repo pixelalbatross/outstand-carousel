@@ -12,6 +12,7 @@
 /package-lock.json export-ignore
 /package.json export-ignore
 /phpcs.xml.dist export-ignore
+/MIGRATING.md export-ignore
 /README.md export-ignore
 
 build/** linguist-generated=true

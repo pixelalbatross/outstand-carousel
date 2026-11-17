@@ -1,0 +1,300 @@
+[
+  {
+    "description": "slides move into a slides block; blocks that are not slides are dropped",
+    "input": [
+      {
+        "name": "pixelalbatross/slider",
+        "attributes": {
+          "navigation": true,
+          "pagination": true,
+          "align": "wide"
+        },
+        "innerBlocks": [
+          {
+            "name": "pixelalbatross/slide",
+            "attributes": {
+              "hash": "first",
+              "className": "is-first",
+              "backgroundColor": "base"
+            },
+            "innerBlocks": [
+              {
+                "name": "core/paragraph",
+                "attributes": {
+                  "content": "Example slide one"
+                },
+                "innerBlocks": []
+              }
+            ]
+          },
+          {
+            "name": "pixelalbatross/slide",
+            "attributes": {},
+            "innerBlocks": [
+              {
+                "name": "core/heading",
+                "attributes": {
+                  "content": "Example slide two"
+                },
+                "innerBlocks": []
+              }
+            ]
+          },
+          {
+            "name": "core/paragraph",
+            "attributes": {
+              "content": "Example stray block"
+            },
+            "innerBlocks": []
+          }
+        ]
+      },
+      {
+        "name": "core/paragraph",
+        "attributes": {
+          "content": "Example paragraph"
+        },
+        "innerBlocks": []
+      }
+    ],
+    "expected": [
+      {
+        "name": "outstand/carousel",
+        "attributes": {
+          "align": "wide",
+          "speed": 300
+        },
+        "innerBlocks": [
+          {
+            "name": "outstand/slides",
+            "attributes": {},
+            "innerBlocks": [
+              {
+                "name": "outstand/slide",
+                "attributes": {
+                  "className": "is-first",
+                  "backgroundColor": "base",
+                  "hash": "first"
+                },
+                "innerBlocks": [
+                  {
+                    "name": "core/paragraph",
+                    "attributes": {
+                      "content": "Example slide one"
+                    },
+                    "innerBlocks": []
+                  }
+                ]
+              },
+              {
+                "name": "outstand/slide",
+                "attributes": {},
+                "innerBlocks": [
+                  {
+                    "name": "core/heading",
+                    "attributes": {
+                      "content": "Example slide two"
+                    },
+                    "innerBlocks": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "outstand/carousel-navigation",
+            "attributes": {},
+            "innerBlocks": []
+          },
+          {
+            "name": "outstand/carousel-pagination",
+            "attributes": {},
+            "innerBlocks": []
+          }
+        ]
+      },
+      {
+        "name": "core/paragraph",
+        "attributes": {
+          "content": "Example paragraph"
+        },
+        "innerBlocks": []
+      }
+    ],
+    "count": 1,
+    "notes": []
+  },
+  {
+    "description": "sliders inside groups and inside slides are converted too",
+    "input": [
+      {
+        "name": "core/group",
+        "attributes": {
+          "tagName": "section"
+        },
+        "innerBlocks": [
+          {
+            "name": "pixelalbatross/slider",
+            "attributes": {
+              "loop": true,
+              "height": "400"
+            },
+            "innerBlocks": [
+              {
+                "name": "pixelalbatross/slide",
+                "attributes": {},
+                "innerBlocks": [
+                  {
+                    "name": "core/group",
+                    "attributes": {},
+                    "innerBlocks": [
+                      {
+                        "name": "pixelalbatross/slider",
+                        "attributes": {
+                          "width": "800",
+                          "pagination": true,
+                          "paginationType": "fraction"
+                        },
+                        "innerBlocks": [
+                          {
+                            "name": "pixelalbatross/slide",
+                            "attributes": {},
+                            "innerBlocks": [
+                              {
+                                "name": "core/paragraph",
+                                "attributes": {
+                                  "content": "Example nested slide"
+                                },
+                                "innerBlocks": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "expected": [
+      {
+        "name": "core/group",
+        "attributes": {
+          "tagName": "section"
+        },
+        "innerBlocks": [
+          {
+            "name": "outstand/carousel",
+            "attributes": {
+              "type": "loop",
+              "speed": 300
+            },
+            "innerBlocks": [
+              {
+                "name": "outstand/slides",
+                "attributes": {},
+                "innerBlocks": [
+                  {
+                    "name": "outstand/slide",
+                    "attributes": {},
+                    "innerBlocks": [
+                      {
+                        "name": "core/group",
+                        "attributes": {},
+                        "innerBlocks": [
+                          {
+                            "name": "outstand/carousel",
+                            "attributes": {
+                              "speed": 300
+                            },
+                            "innerBlocks": [
+                              {
+                                "name": "outstand/slides",
+                                "attributes": {},
+                                "innerBlocks": [
+                                  {
+                                    "name": "outstand/slide",
+                                    "attributes": {},
+                                    "innerBlocks": [
+                                      {
+                                        "name": "core/paragraph",
+                                        "attributes": {
+                                          "content": "Example nested slide"
+                                        },
+                                        "innerBlocks": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "name": "outstand/carousel-counter",
+                                "attributes": {},
+                                "innerBlocks": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "count": 2,
+    "notes": [
+      "height",
+      "width"
+    ]
+  },
+  {
+    "description": "a slider without slides keeps an empty slides block, and the progress bar",
+    "input": [
+      {
+        "name": "pixelalbatross/slider",
+        "attributes": {
+          "pagination": true,
+          "paginationType": "progressbar",
+          "autoplay": true,
+          "autoplayInterval": 4000
+        },
+        "innerBlocks": []
+      }
+    ],
+    "expected": [
+      {
+        "name": "outstand/carousel",
+        "attributes": {
+          "speed": 300,
+          "autoplay": true,
+          "interval": 4000,
+          "pauseOnHover": false
+        },
+        "innerBlocks": [
+          {
+            "name": "outstand/slides",
+            "attributes": {},
+            "innerBlocks": []
+          },
+          {
+            "name": "outstand/carousel-pagination",
+            "attributes": {
+              "type": "progress"
+            },
+            "innerBlocks": []
+          }
+        ]
+      }
+    ],
+    "count": 1,
+    "notes": []
+  }
+]

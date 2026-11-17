@@ -6,7 +6,8 @@
 		'wp-components',
 		'wp-data',
 		'wp-element',
-		'wp-i18n'
+		'wp-i18n',
+		'wp-notices'
 	),
-	'version' => '8105a522f0d83d7858a0'
+	'version' => '294a35aef4b08729dfe8'
 );
